@@ -2,13 +2,13 @@
 #include <stdio.h>
 #include <math.h>
 
-// решатель квадратных ур-ий
+// Square equations solver
 int main(void) {
-    float a, b, c; // коэффициниенты
+    float a, b, c;
     printf ("Coefficients (with \"enter\"):\n");
     scanf ("%f\n%f\n%f", &a, &b, &c);
 
-    // нулевые коэфф-ы
+    // zero coefficients
     if (a == 0) {
         float x;
         if (b != 0) {
@@ -29,7 +29,7 @@ int main(void) {
     float discr;
     discr = b * b - 4 * a * c;
 
-    // Проверка дискриминанта
+    // Checking discriminant
     if (discr < 0) {
         printf ("Zero rational solutions");
         return 0;
