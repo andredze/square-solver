@@ -13,7 +13,7 @@ int main(void) {
         float x;
         if (b != 0) {
             x = -c / b;
-            printf ("One root:\n%.3f", x);
+            printf ("One root:\n%.2f", x);
             return 0;
         }
         else if (c == 0) {
