@@ -4,12 +4,29 @@
 
 const double EPS = FLT_EPSILON;
 
+typedef struct Equation {
+    double a;
+    double b;
+    double c;
+    double x1;
+    double x2;
+    SolutionCount_t RootsCount;
+} Equation_t;
+
 typedef enum SolutionCount {
     ZERO_SOL,
     ONE_SOL,
     TWO_SOL,
     INF_SOL
 } SolutionCount_t;
+
+int test_solve_equation ();
+
+int test_equation_example (double a, double b, double c,
+                           double expected_x1, double expected_x2,
+                           SolutionCount_t ExpectedRootsCount);
+
+int are_equal (double value1, double value2);
 
 int get_input (double* a, double* b, double* c);
 
@@ -27,46 +44,88 @@ SolutionCount_t solve_quadratic_eq (double* x1, double* x2,
 
 int less_than_zero (double value);
 
-int print_answer (SolutionCount_t roots, double x1, double x2);
+int print_answer (SolutionCount_t RootsCount, double x1, double x2);
 
 int main () {
 
-    printf ("<Square equations solver>\n\n");
+    printf ("<Square equations solver>\n");
+
+    test_solve_equation ();
+    printf ("\n");
 
     double a = 0, b = 0, c = 0;
-    if (get_input (&a, &b, &c) == -1)
+    if (get_input (&a, &b, &c) == 0)
     {
         return 0;
     }
 
     double x1 = 0, x2 = 0;
-    SolutionCount_t roots = solve_equation (a, b, c, &x1, &x2);
+    SolutionCount_t RootsCount = solve_equation (a, b, c, &x1, &x2);
 
-    print_answer (roots, x1, x2);
+    print_answer (RootsCount, x1, x2);
 
     return 0;
+}
+
+int test_solve_equation ()
+{
+    // test_equation_example (a, b, c, x1, x2, RootsCount)
+    /*
+    test_equation_example (1, -5, 6, 2, 3, TWO_SOL);
+    test_equation_example (1, 4, 3, -1, -3, TWO_SOL);
+    test_equation_example (1, 5, 6, -2, -3, TWO_SOL);
+    test_equation_example (0, 1, 6, -6, 0, ONE_SOL);
+    test_equation_example (0, 0, 0, 0, 0, INF_SOL);
+    test_equation_example (0, 0, 5, 0, 0, ZERO_SOL);
+    test_equation_example (0, 0, -14, 0, 0, ZERO_SOL);
+    test_equation_example (1, 2, 1, -1, 0, ONE_SOL);
+    test_equation_example (1, -2.2, 1.21, 1.1, 0, ONE_SOL);
+    */
+    return 0;
+}
+
+int test_equation_example (double a, double b, double c,
+                           double expected_x1, double expected_x2,
+                           SolutionCount_t ExpectedRootsCount)
+{
+    double x1 = 0, x2 = 0;
+    SolutionCount_t RootsCount = solve_equation (a, b, c, &x1, &x2);
+    if (!(RootsCount == ExpectedRootsCount &&
+        ((are_equal (x1, expected_x1) && are_equal (x2, expected_x2)) ||
+         (are_equal (x1, expected_x2) && are_equal (x2, expected_x1)))))
+    {
+        printf ("Oh no: solve_equation (%lg, %lg, %lg) -> "
+                "RootsCount = %d, x1 = %lg, x2 = %lg "
+                "(should be RootsCount = %d, x1 = %lg, x2 = %lg)\n",
+                a, b, c, RootsCount, x1, x2, ExpectedRootsCount, expected_x1, expected_x2);
+        return 0;
+    }
+    return 1;
+}
+
+int are_equal (double value1, double value2)
+{
+    return fabs (value2 - value1) < EPS;
 }
 
 int get_input (double* a, double* b, double* c)
 {
     printf ("Coefficients\n");
 
-    get_coefficient ('a', a);
-    get_coefficient ('b', b);
-    get_coefficient ('c', c);
-
-    return 0;
+    return get_coefficient ('a', a) &&
+           get_coefficient ('b', b) &&
+           get_coefficient ('c', c);
 }
 
 int get_coefficient (char name, double* pointer)
 {
     printf ("Enter %c: ", name);
     if (scanf ("%lg", pointer) != 1)
-    {const double EPS = FLT_EPSILON;
+    {
         printf ("Error: non-number input at \"%c\"", name);
-        return -1;
+        return 0;
     }
-    return 0;
+    return 1;
 }
 
 SolutionCount_t solve_equation (double a, double b, double c,
@@ -93,11 +152,12 @@ SolutionCount_t solve_equation (double a, double b, double c,
         SolutionCount_t roots_of_quad =  solve_quadratic_eq (x1, x2, a, b, c);
         return roots_of_quad;
     }
+    return -1;
 }
 
-int is_zero (double n)
+int is_zero (double value)
 {
-    return fabs(n) <= EPS;
+    return fabs(value) <= EPS;
 }
 
 int solve_linear_eq (double* x1, double b, double c)
@@ -129,16 +189,17 @@ SolutionCount_t solve_quadratic_eq (double* x1, double* x2,
 
         return TWO_SOL;
     }
+    return -1;
 }
 
-int less_than_zero (double n)
+int less_than_zero (double value)
 {
-    return n + EPS < 0;
+    return value + EPS < 0;
 }
 
-int print_answer (SolutionCount_t roots, double x1, double x2)
+int print_answer (SolutionCount_t RootsCount, double x1, double x2)
 {
-    switch (roots)
+    switch (RootsCount)
     {
     case ZERO_SOL:
         printf ("Zero roots");
@@ -156,5 +217,6 @@ int print_answer (SolutionCount_t roots, double x1, double x2)
         printf ("Error: unexpected \"roots\" return");
         break;
     }
+    printf ("\n");
     return 0;
 }
