@@ -13,10 +13,7 @@ int main () {
 
     Equation_t equation = {0, 0, 0, 0, 0, ZERO_SOL};
 
-    if (get_input (&equation) == 0)
-    {
-        return 0;
-    }
+    get_input (&equation);
 
     equation.RootsCount = solve_equation (&equation);
 

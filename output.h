@@ -1,3 +1,13 @@
+//! @file
+
 #include "common.h"
 
-int print_answer (Equation_t* equation);
+//---------------------------------------------------
+//! Prints answer to the equation
+//!
+//! @param  equation  Pointer to a Equation_t, containing
+//!                   a, b, c -coefficients, roots x1, x2
+//!                   and number of roots;
+//---------------------------------------------------
+
+void print_answer (Equation_t* equation);

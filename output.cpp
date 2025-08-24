@@ -1,7 +1,7 @@
 #include "common.h"
 #include "output.h"
 
-int print_answer (Equation_t* equation)
+void print_answer (Equation_t* equation)
 {
     switch (equation->RootsCount)
     {
@@ -25,5 +25,4 @@ int print_answer (Equation_t* equation)
         break;
     }
     printf ("\n");
-    return 0;
 }

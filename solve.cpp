@@ -28,10 +28,9 @@ int is_zero (double value)
     return fabs(value) <= EPS;
 }
 
-int solve_linear_eq (Equation_t* equation)
+void solve_linear_eq (Equation_t* equation)
 {
     equation->x1 = -equation->c / equation->b;
-    return 0;
 }
 
 SolutionCount_t solve_quadratic_eq (Equation_t* equation)

@@ -1,22 +1,38 @@
 #include "common.h"
 #include "input.h"
 
-int get_input (Equation_t* equation)
+void get_input (Equation_t* equation)
 {
     printf ("Coefficients\n");
 
-    return get_coefficient ('a', &(equation->a)) &&
-           get_coefficient ('b', &(equation->b)) &&
-           get_coefficient ('c', &(equation->c));
+    get_coefficient ('a', &(equation->a));
+    get_coefficient ('b', &(equation->b));
+    get_coefficient ('c', &(equation->c));
+    printf ("\n");
 }
 
-int get_coefficient (char name, double* pointer)
+void get_coefficient (char name, double* pointer)
 {
-    printf ("Enter %c: ", name);
-    if (scanf ("%lg", pointer) != 1)
+    while (1)
     {
-        printf ("Error: non-number input at \"%c\"", name);
-        return 0;
+        printf ("Enter %c: ", name);
+        if (scanf ("%lg", pointer) != 1 || getchar () != '\n')
+        {
+            shavatb_govno ();
+            printf ("Debil, viydi i vvedi normalno\n\n");
+        }
+        else
+        {
+            break;
+        }
     }
-    return 1;
+}
+
+void shavatb_govno ()
+{
+    int c = 0;
+    while ((c = getchar ()) != '\n')
+    {
+        ;
+    }
 }
