@@ -16,7 +16,8 @@ void get_coefficient (char name, double* pointer)
     while (1)
     {
         printf ("Enter %c: ", name);
-        if (scanf ("%lg", pointer) != 1 || getchar () != '\n')
+        int c = 0;
+        if (scanf ("%lg", pointer) != 1 || !((c = getchar ()) == '\n' || c == ' ' || c == '\t'))
         {
             shavatb_govno ();
             printf ("Debil, viydi i vvedi normalno\n\n");
