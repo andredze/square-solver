@@ -2,6 +2,16 @@
 #include "test.h"
 #include "solve.h"
 
+//---------------------------------------------------------------
+//! Tests solve_equation() by inputting different structures with
+//! coefficients and expected results and comparing them with
+//! given answers
+//!
+//! @param None
+//!
+//! @return Number of failed tests
+//---------------------------------------------------------------
+
 int test_solve_equation ()
 {
     // test_equation_example (a, b, c, x1, x2, RootsCount)
@@ -15,12 +25,23 @@ int test_solve_equation ()
                              {1, 2, 1, -1, 0, ONE_SOL},
                              {1, -2.2, 1.21, 1.1, 0, ONE_SOL},
                              {1, 1, 10, 0, 0, ZERO_SOL}};
+    int failed = 0;
     for (int i = 0; i < 10; ++i)
     {
-        test_equation_example (&(examples[i]));
+        failed += !test_equation_example (&(examples[i]));
     }
-    return 0;
+    return failed;
 }
+
+//---------------------------------------------------------------
+//! Tests solve_equation with one example of equation
+//!
+//! @param  expected  pointer to a Equation_t, containing
+//!         a, b, c -coefficients, referenced roots x1, x2
+//!         and referenced number of roots;
+//!
+//! @return 0 in case of a mistake; 1 if everything is fine
+//---------------------------------------------------------------
 
 int test_equation_example (Equation_t* expected)
 {
