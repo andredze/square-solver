@@ -97,21 +97,18 @@ $(function(){initNavTree('input_8h.html','',''); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a3ef7f06085e0ee04138abcb9f120f844" id="r_a3ef7f06085e0ee04138abcb9f120f844"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3ef7f06085e0ee04138abcb9f120f844">get_input</a> (<a class="el" href="struct_equation.html">Equation_t</a> *equation)</td></tr>
-<tr class="memitem:af3af7e3428da036d6d1fa56b81d08305" id="r_af3af7e3428da036d6d1fa56b81d08305"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af3af7e3428da036d6d1fa56b81d08305">get_coefficient</a> (char name, double *pointer)</td></tr>
-<tr class="memitem:a21efd29c4072c6000e3e75a280e59f72" id="r_a21efd29c4072c6000e3e75a280e59f72"><td class="memItemLeft" align="right" valign="top"><a id="a21efd29c4072c6000e3e75a280e59f72" name="a21efd29c4072c6000e3e75a280e59f72"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>shavatb_govno</b> ()</td></tr>
-<tr class="memdesc:a21efd29c4072c6000e3e75a280e59f72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes input from the queue if it doesn't fit the format. <br /></td></tr>
+<tr class="memitem:a38c7bdcee230c612f22a44fb37b27e9d" id="r_a38c7bdcee230c612f22a44fb37b27e9d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a38c7bdcee230c612f22a44fb37b27e9d">get_input</a> (<a class="el" href="struct_equation.html">Equation_t</a> *equation)</td></tr>
+<tr class="memitem:a34553992d6bd1d6ba8a6e02ad5b19e3a" id="r_a34553992d6bd1d6ba8a6e02ad5b19e3a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a34553992d6bd1d6ba8a6e02ad5b19e3a">get_coefficient</a> (char name, double *pointer)</td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="af3af7e3428da036d6d1fa56b81d08305" name="af3af7e3428da036d6d1fa56b81d08305"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af3af7e3428da036d6d1fa56b81d08305">&#9670;&#160;</a></span>get_coefficient()</h2>
+<a id="a34553992d6bd1d6ba8a6e02ad5b19e3a" name="a34553992d6bd1d6ba8a6e02ad5b19e3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34553992d6bd1d6ba8a6e02ad5b19e3a">&#9670;&#160;</a></span>get_coefficient()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void get_coefficient </td>
+          <td class="memname">int get_coefficient </td>
           <td>(</td>
           <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
         </tr>
@@ -126,21 +123,23 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>shavatb_govno</b> ()<
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>Name of the coefficient </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">pointer</td><td>A pointer to the coefficient </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">pointer</td><td>A pointer to the coefficient</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>1 if user wants to exit. Else 0</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>EOF to exit the function </dd></dl>
 
 </div>
 </div>
-<a id="a3ef7f06085e0ee04138abcb9f120f844" name="a3ef7f06085e0ee04138abcb9f120f844"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3ef7f06085e0ee04138abcb9f120f844">&#9670;&#160;</a></span>get_input()</h2>
+<a id="a38c7bdcee230c612f22a44fb37b27e9d" name="a38c7bdcee230c612f22a44fb37b27e9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38c7bdcee230c612f22a44fb37b27e9d">&#9670;&#160;</a></span>get_input()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void get_input </td>
+          <td class="memname">int get_input </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_equation.html">Equation_t</a> *</td>          <td class="paramname"><span class="paramname"><em>equation</em></span></td><td>)</td>
           <td></td>
@@ -154,7 +153,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>shavatb_govno</b> ()<
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>Prints an error in case of a wrong input and allows to re-enter </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>1 if user wants to exit. Else 0</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Prints an error in case of a wrong input and allows to re-enter; EOF to exit the function </dd></dl>
 
 </div>
 </div>

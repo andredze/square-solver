@@ -5,6 +5,7 @@
 #include <math.h>
 
 const double EPS = 1e-8;
+const int MAXLEN = 300;
 
 typedef enum SolutionCount {
     ZERO_SOL,

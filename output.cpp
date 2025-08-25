@@ -24,5 +24,5 @@ void print_answer (Equation_t* equation)
         printf ("Error during switch (RootsCount)");
         break;
     }
-    printf ("\n");
+    printf ("\n\n");
 }

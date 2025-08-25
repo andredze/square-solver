@@ -20,6 +20,7 @@ int test_solve_equation ()
     {
         failed += test_equation_example (&(examples[i]));
     }
+    printf ("\n");
     return failed;
 }
 

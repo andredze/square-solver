@@ -9,15 +9,16 @@ int main () {
     printf ("<Square equations solver>\n");
 
     test_solve_equation ();
-    printf ("\n");
 
     Equation_t equation = {0, 0, 0, 0, 0, ZERO_SOL};
 
-    get_input (&equation);
+    FILE* file_stream = fopen ("file.txt", "r");
 
-    equation.RootsCount = solve_equation (&equation);
-
-    print_answer (&equation);
+    while (!(get_input (&equation, file_stream)))
+    {
+        equation.RootsCount = solve_equation (&equation);
+        print_answer (&equation);
+    }
 
     return 0;
 }

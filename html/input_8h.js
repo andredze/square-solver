@@ -1,6 +1,5 @@
 var input_8h =
 [
-    [ "get_coefficient", "input_8h.html#af3af7e3428da036d6d1fa56b81d08305", null ],
-    [ "get_input", "input_8h.html#a3ef7f06085e0ee04138abcb9f120f844", null ],
-    [ "shavatb_govno", "input_8h.html#a21efd29c4072c6000e3e75a280e59f72", null ]
+    [ "get_coefficient", "input_8h.html#a34553992d6bd1d6ba8a6e02ad5b19e3a", null ],
+    [ "get_input", "input_8h.html#a38c7bdcee230c612f22a44fb37b27e9d", null ]
 ];

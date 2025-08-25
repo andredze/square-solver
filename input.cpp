@@ -1,39 +1,69 @@
 #include "common.h"
 #include "input.h"
 
-void get_input (Equation_t* equation)
+int get_input (Equation_t* equation, FILE* stream)
 {
     printf ("Coefficients\n");
 
-    get_coefficient ('a', &(equation->a));
-    get_coefficient ('b', &(equation->b));
-    get_coefficient ('c', &(equation->c));
+    int user_exit = 0;
+
+    user_exit = get_coefficient_file ('a', &(equation->a), stream) ||
+                get_coefficient_file ('b', &(equation->b), stream) ||
+                get_coefficient_file ('c', &(equation->c), stream);
+
     printf ("\n");
+    return user_exit;
 }
 
-void get_coefficient (char name, double* pointer)
+int get_coefficient_keyboard (char name, double* pointer)
 {
     while (1)
     {
         printf ("Enter %c: ", name);
-        int c = 0;
-        if (scanf ("%lg", pointer) != 1 || !((c = getchar ()) == '\n' || c == ' ' || c == '\t'))
+        char line[MAXLEN];
+
+        if (fgets (line, MAXLEN, stdin) != NULL)
         {
-            shavatb_govno ();
-            printf ("Debil, viydi i vvedi normalno\n\n");
+            if (sscanf (line, "%lg", pointer) != 1)
+            {
+                printf ("Viydi i vvedi normalno\n\n");
+            }
+            else
+            {
+                return 0;
+            }
         }
         else
         {
-            break;
+            return 1;
         }
     }
+    return 0;
 }
 
-void shavatb_govno ()
+int get_coefficient_file (char name, double* pointer, FILE* stream)
 {
-    int c = 0;
-    while ((c = getchar ()) != '\n')
+    while (1)
     {
-        ;
+        printf ("%c: ", name);
+        char line[MAXLEN];
+
+        if (fgets (line, MAXLEN, stream) != NULL)
+        {
+            if (sscanf (line, "%lg", pointer) != 1)
+            {
+                printf ("Sozday fael normalno\n\n");
+            }
+            else
+            {
+                printf ("%s", line);
+                return 0;
+            }
+        }
+        else
+        {
+            return 1;
+        }
     }
+    return 0;
 }
