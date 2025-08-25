@@ -12,10 +12,35 @@ int main () {
 
     Equation_t equation = {0, 0, 0, 0, 0, ZERO_SOL};
 
-    FILE* file_stream = fopen ("file.txt", "r");
+    FILE* stream = stdin;
 
-    while (!(get_input (&equation, file_stream)))
+    int is_from_file = 0;
+
+    if (is_from_file)
     {
+        stream = fopen ("file.txt", "r");
+    }
+
+    int user_exit = 0;
+
+    while (!(user_exit))
+    {
+        if (stream == stdin)
+        {
+            printf ("Coefficients\nEnter a, b, c: ");
+        }
+
+        user_exit = get_input (&equation, stream);
+        if (stream != stdin)
+        {
+            printf ("a, b, c: %lg %lg %lg\n", equation.a, equation.b, equation.c);
+        }
+
+        if (user_exit)
+        {
+            break;
+        }
+
         equation.RootsCount = solve_equation (&equation);
         print_answer (&equation);
     }

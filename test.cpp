@@ -5,18 +5,20 @@
 int test_solve_equation ()
 {
     // test_equation_example (a, b, c, x1, x2, RootsCount)
-    Equation_t examples[] = {{1, -5, 6, 2, 3, TWO_SOL},
-                             {1, 4, 3, -1, -3, TWO_SOL},
-                             {1, 5, 6, -2, -3, TWO_SOL},
-                             {0, 1, 6, -6, 0, ONE_SOL},
-                             {0, 0, 0, 0, 0, INF_SOL},
-                             {0, 0, 5, 0, 0, ZERO_SOL},
-                             {0, 0, -14, 0, 0, ZERO_SOL},
-                             {1, 2, 1, -1, 0, ONE_SOL},
-                             {1, -2.2, 1.21, 1.1, 0, ONE_SOL},
-                             {1, 1, 10, 0, 0, ZERO_SOL}};
+    Equation_t examples[] = {{.a = 1, .b = -5, .c = 6, .x1 = 2, .x2 = 3, .RootsCount = TWO_SOL},
+                             {.a = 1, .b = 4, .c = 3, .x1 = -1, .x2 = -3, .RootsCount = TWO_SOL},
+                             {.a = 1, .b = 5, .c = 6, .x1 = -2, .x2 = -3, .RootsCount = TWO_SOL},
+                             {.a = 0, .b = 1, .c = 6, .x1 = -6, .x2 = 0, .RootsCount = ONE_SOL},
+                             {.a = 0, .b = 0, .c = 0, .x1 = 0, .x2 = 0, .RootsCount = INF_SOL},
+                             {.a = 0, .b = 0, .c = 5, .x1 = 0, .x2 = 0, .RootsCount = ZERO_SOL},
+                             {.a = 0, .b = 0, .c = -14, .x1 = 0, .x2 = 0, .RootsCount = ZERO_SOL},
+                             {.a = 1, .b = 2, .c = 1, .x1 = -1, .x2 = 0, .RootsCount = ONE_SOL},
+                             {.a = 1, .b = -2.2, .c = 1.21, .x1 = 1.1, .x2 = 0, .RootsCount = ONE_SOL},
+                             {.a = 1, .b = 1, .c = 10, .x1 = 0, .x2 = 0, .RootsCount = ZERO_SOL}};
+    size_t len = sizeof (examples) / sizeof (examples[0]);
+
     int failed = 0;
-    for (int i = 0; i < 10; ++i)
+    for (size_t i = 0; i < len; ++i)
     {
         failed += test_equation_example (&(examples[i]));
     }
