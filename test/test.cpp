@@ -37,25 +37,32 @@ int test_solve_equation ()
 
 int test_equation_example (Equation_t* exp)
 {
-    Equation_t real = {{exp->coeffs.a,
-                        exp->coeffs.b,
-                        exp->coeffs.c},
-                        {ZERO_SOL, 0, 0}};
+    double a = exp->coeffs.a;
+    double b = exp->coeffs.b;
+    double c = exp->coeffs.c;
+
+    Equation_t real = {{a, b, c}, {ZERO_SOL, 0, 0}};
 
     solve_equation (&real);
 
-    if (!(real.roots.RootsCount == exp->roots.RootsCount &&
-        ((are_equal (real.roots.x1, exp->roots.x1) &&
-          are_equal (real.roots.x2, exp->roots.x2)) ||
-         (are_equal (real.roots.x1, exp->roots.x2) &&
-          are_equal (real.roots.x2, exp->roots.x1)))))
+    double x1 = real.roots.x1;
+    double x2 = real.roots.x2;
+    double RootsCount = real.roots.RootsCount;
+
+    double x1_ref = exp->roots.x1;
+    double x2_ref = exp->roots.x2;
+    double RootsCount_ref = exp->roots.RootsCount;
+
+    if (!(RootsCount == RootsCount_ref &&
+        ((are_equal (x1, x1_ref) &&
+          are_equal (x2, x2_ref)) ||
+         (are_equal (x1, x2_ref) &&
+          are_equal (x2, x1_ref)))))
     {
         printf ("Oh no: solve_equation (%lg, %lg, %lg) -> "
                 "RootsCount = %d, x1 = %lg, x2 = %lg "
                 "(should be RootsCount = %d, x1 = %lg, x2 = %lg)\n",
-                exp->coeffs.a, exp->coeffs.b, exp->coeffs.c,
-                real.roots.RootsCount, real.roots.x1, real.roots.x2,
-                exp->roots.RootsCount, exp->roots.x1, exp->roots.x2);
+                a, b, c, RootsCount, x1, x2, RootsCount_ref, x1_ref, x2_ref);
         return 1;
     }
     return 0;
