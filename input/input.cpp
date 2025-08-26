@@ -1,5 +1,12 @@
 #include "input.h"
 
+
+void get_file_input ()
+{
+    printf ("Enter coefficients\na, b, c: ");
+    user_active = get_input (&equation.coeffs, stream);
+}
+
 int check_for_file (int argc, char* argv[], FILE** stream)
 {
     if (argc != 1)

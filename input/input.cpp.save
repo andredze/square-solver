@@ -1,83 +1,53 @@
-#include "common.h"
 #include "input.h"
 
-int get_input (Equation_t* equation, FILE* stream)
+
+void get_file_input ()
 {
-    char line[MAXLEN];
-    int user_exit = 0;
+    printf ("Enter coefficients\na, b, c: ");
+    user_active = get_input (&equation.coeffs, stream);
+}
+
+void get_console_input ()
+
+
+int check_for_file (int argc, char* argv[], FILE** stream)
+{
+    if (argc != 1)
+    {
+        *stream = fopen (argv[1], "r");
+        if (*stream == NULL)
+        {
+            printf ("Error: cannot open %s\n", argv[1]);
+            return 1;
+        }
+    }
+    return 0;
+}
+
+int get_input (Coeffs_t* coeffs, FILE* stream)
+{
+    char line[MAXLEN] = {};
+    int user_active = 1;
 
     while (1)
     {
         if (fgets (line, MAXLEN, stream) != NULL)
         {
-            if (sscanf (line, "%lg %lg %lg", equation->a, equation->b, equation->c) != 1)
-                {
-                    printf ("Viydi i vvedi normalno\n\n");
-                }
-            else
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            return 1;
-        }
-    }
-    user_exit =
-
-    return user_exit;
-}
-
-int get_coefficient_keyboard (char name, double* pointer)
-{
-    while (1)
-    {
-        printf ("Enter %c: ", name);
-        char line[MAXLEN];
-
-        if (fgets (line, MAXLEN, stdin) != NULL)
-        {
-            if (sscanf (line, "%lg", pointer) != 1)
+            if (sscanf (line, "%lg %lg %lg", &(coeffs->a), &(coeffs->b), &(coeffs->c)) != 3)
             {
                 printf ("Viydi i vvedi normalno\n\n");
             }
             else
             {
-                return 0;
+                break;
             }
         }
         else
         {
-            return 1;
+            user_active = 0;
+            break;
         }
     }
-    return 0;
-}
 
-int get_coefficient_file (char name, double* pointer, FILE* stream)
-{
-    while (1)
-    {
-        printf ("%c: ", name);
-        char line[MAXLEN];
-
-        if (fgets (line, MAXLEN, stream) != NULL)
-        {
-            if (sscanf (line, "%lg", pointer) != 1)
-            {
-                printf ("Sozday fael normalno\n\n");
-            }
-            else
-            {
-                printf ("%s", line);
-                return 0;
-            }
-        }
-        else
-        {
-            return 1;
-        }
-    }
-    return 0;
+    return user_active;
 }
