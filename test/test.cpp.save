@@ -1,0 +1,121 @@
+#include "../common.h"
+#include "test.h"
+#include "../solve/solve.h"
+
+int test_solve_equation ()
+{
+
+    int failed = 0;
+    char line[MAXLEN] = {0};
+    char StrRootsCount[MAXLEN] = {0};
+    FILE* stream = stdin;
+    stream = fopen ("./test/tests.txt", "r");
+    int i = 0;
+            while (StrRootsCount[i] != '\0')
+            {
+                printf ("%c", StrRootsCount[i]);
+            }
+            printf ("\n");
+
+    Equation_t equation = {.coeffs = {.a = 0,
+                                      .b = 0,
+                                      .c = 0},
+                           .roots  = {.RootsCount = ZERO_SOL,
+                                      .x1 = 0,
+                                      .x2 = 0}};
+
+    while (fgets (line, MAXLEN, stream) != NULL)
+    {
+        if (sscanf (line, "%lg %lg %lg %lg %lg",
+                    &equation.coeffs.a, &equation.coeffs.b, &equation.coeffs.c,
+                    &equation.roots.x1, &equation.roots.x2) == 5)
+        {
+            fgets (line, MAXLEN, stream);
+            sscanf (line, "%s", &StrRootsCount);
+            printf ("%lg %lg %lg %lg %lg %s\n",
+                    equation.coeffs.a, equation.coeffs.b, equation.coeffs.c,
+                    equation.roots.x1, equation.roots.x2, StrRootsCount);
+            equation.roots.RootsCount = 
+            if (equation.roots.RootsCount == ROOTSCOUNT_ERROR)
+            {
+                printf ("WTF\n");
+                return test_creating_error ();
+            }
+            failed += test_equation_example (&equation);
+        }
+        else
+        {
+            return test_creating_error ();
+        }
+    }
+
+    return failed;
+}
+
+int test_equation_example (Equation_t* exp)
+{
+    Equation_t real = {{exp->coeffs.a,
+                        exp->coeffs.b,
+                        exp->coeffs.c},
+                        {ZERO_SOL, 0, 0}};
+
+    real.roots.RootsCount = solve_equation (&real);
+
+    if (!(real.roots.RootsCount == exp->roots.RootsCount &&
+        ((are_equal (real.roots.x1, exp->roots.x1) &&
+          are_equal (real.roots.x2, exp->roots.x2)) ||
+         (are_equal (real.roots.x1, exp->roots.x2) &&
+          are_equal (real.roots.x2, exp->roots.x1)))))
+    {
+        printf ("Oh no: solve_equation (%lg, %lg, %lg) -> "
+                "RootsCount = %d, x1 = %lg, x2 = %lg "
+                "(should be RootsCount = %d, x1 = %lg, x2 = %lg)\n",
+                exp->coeffs.a, exp->coeffs.b, exp->coeffs.c,
+                real.roots.RootsCount, real.roots.x1, real.roots.x2,
+                exp->roots.RootsCount, exp->roots.x1, exp->roots.x2);
+        return 1;
+    }
+    return 0;
+}
+
+SolutionCount_t str_to_enum (char* str)
+{
+    printf ("%c\n", str);
+    if (strcmp(str, "ZERO_SOL"))
+    {
+        return ZERO_SOL;
+    }
+    else if (strcmp(str, "ONE_SOL"))
+    {
+        return ONE_SOL;
+    }
+    else if (strcmp(str, "TWO_SOL"))
+    {
+        return TWO_SOL;
+    }
+    else if (strcmp(str, "INF_SOL"))
+    {
+        return INF_SOL;
+    }
+    return ROOTSCOUNT_ERROR;
+}
+
+int strcmp (char* str1, const char* str2)
+{
+    int i = 0;
+    while (str1[i] == str2[i] && str1[i] != '\n' && str2[i] != '\n')
+    {
+        i++;
+    }
+    if (str1[i] == str2[i])
+    {
+        return 1;
+    }
+    return 0;
+}
+
+int test_creating_error ()
+{
+    printf ("Error in creating texts.txt");
+    return -1;
+}
