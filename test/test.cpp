@@ -19,7 +19,7 @@ int test_solve_equation ()
     {
         if (sscanf (line, "%lg %lg %lg %d %lg %lg",
                     &equation.coeffs.a, &equation.coeffs.b, &equation.coeffs.c,
-                    &equation.roots.RootsCount, &equation.roots.x1, &equation.roots.x2) == 6)
+                    (int *) &equation.roots.RootsCount, &equation.roots.x1, &equation.roots.x2) == 6)
         {
             failed += test_equation_example (&equation);
         }
@@ -47,11 +47,11 @@ int test_equation_example (Equation_t* exp)
 
     double x1 = real.roots.x1;
     double x2 = real.roots.x2;
-    double RootsCount = real.roots.RootsCount;
+    SolutionCount_t RootsCount = real.roots.RootsCount;
 
     double x1_ref = exp->roots.x1;
     double x2_ref = exp->roots.x2;
-    double RootsCount_ref = exp->roots.RootsCount;
+    SolutionCount_t RootsCount_ref = exp->roots.RootsCount;
 
     if (!(equal_equation_t (exp, &real)))
     {
@@ -74,13 +74,13 @@ int equal_equation_t (Equation_t* eq1, Equation_t* eq2)
 {
     double x1 = eq1->roots.x1;
     double x2 = eq1->roots.x2;
-    double RootsCount = eq1->roots.RootsCount;
+    SolutionCount_t RootsCount = eq1->roots.RootsCount;
 
     double x1_ref = eq2->roots.x1;
     double x2_ref = eq2->roots.x2;
-    double RootsCount_ref = eq2->roots.RootsCount;
+    SolutionCount_t RootsCount_ref = eq2->roots.RootsCount;
 
     return RootsCount == RootsCount_ref &&
-          (x1 == x1_ref && x2 == x2_ref ||
-           x1 == x2_ref && x2 == x1_ref);
+          ((are_equal (x1, x1_ref) && are_equal (x2, x2_ref)) ||
+           (are_equal (x1, x2_ref) && are_equal (x2, x1_ref)));
 }

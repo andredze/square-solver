@@ -1,6 +1,13 @@
 //! @file
 
+#ifndef INPUT_H
+#define INPUT_H
+
 #include "../common.h"
+
+int get_console_input (Coeffs_t* coeffs);
+
+int get_file_input (Coeffs_t* coeffs, FILE* stream);
 
 //-------------------------------------------------------------------
 //! Checks terminal input for file. Sets stream to file
@@ -31,3 +38,5 @@ int check_for_file (int argc, char* argv[], FILE** stream);
 //-----------------------------------------------------
 
 int get_input (Coeffs_t* coeffs, FILE* stream);
+
+#endif // INPUT_H

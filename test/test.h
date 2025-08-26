@@ -1,5 +1,8 @@
 //! @file
 
+#ifndef TEST_H
+#define TEST_H
+
 #include "../common.h"
 
 //---------------------------------------------------------------
@@ -44,3 +47,5 @@ int test_creating_error ();
 //-------------------------------------------------------------
 
 int equal_equation_t (Equation_t* eq1, Equation_t* eq2);
+
+#endif // TEST_H

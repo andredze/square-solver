@@ -1,103 +1,79 @@
-#include "common.h"
+#ifndef SOLVE
+
 #include "solve.h"
 
-//---------------------------------------------------------------------------
-//! Solves a square equation ax2 + bx + c = 0 (or linear in case of a == 0)
-//!
-//! @param  equation  pointer to a Equation_t, containing
-//!                   a, b, c -coefficients, roots x1, x2
-//!                   and number of roots;
-//!
-//! @return SolutionCount_t object, encountering number of roots
-//---------------------------------------------------------------------------
-
-SolutionCount_t solve_equation (Equation_t* equation)
+void solve_equation (Equation_t* eq)
 {
-    if (is_zero (equation->a))
+    double a = eq->coeffs.a;
+    double b = eq->coeffs.b;
+    double c = eq->coeffs.c;
+
+    if (is_zero (a))
     {
-        if (is_zero (equation->b))
+        if (is_zero (b))
         {
-            return is_zero(equation->c) ? INF_SOL : ZERO_SOL;
+            (&eq->roots)->RootsCount = is_zero(c) ? INF_SOL : ZERO_SOL;
+            return;
         }
         else // (b != 0)
         {
-            solve_linear_eq (equation);
-            return ONE_SOL;
+            solve_linear_eq (eq);
+            (&eq->roots)->RootsCount = ONE_SOL;
+            return;
         }
     }
     else // (a != 0)
     {
-        SolutionCount_t roots_of_quad =  solve_quadratic_eq (equation);
-        return roots_of_quad;
+        solve_quadratic_eq (eq);
+        return;
     }
-    return ROOTSCOUNT_ERROR;
+    (&eq->roots)->RootsCount = ROOTSCOUNT_ERROR;
 }
-
-//-----------------------------------------------------
-//! Checks if the number is equal to zero (within EPS)
-//!
-//! @param [in]  value  Any number
-//!
-//! @return 1 if number is zero; 0 if not
-//-----------------------------------------------------
 
 int is_zero (double value)
 {
     return fabs(value) <= EPS;
 }
 
-//----------------------------------------------------
-//! Solves a linear equation bx + c = 0
-//!
-//! @param  equation  pointer to a Equation_t, containing
-//!                   a, b, c -coefficients, roots x1, x2
-//!                   and number of roots;
-//!
-//! @return 0
-//----------------------------------------------------
-
-int solve_linear_eq (Equation_t* equation)
+void solve_linear_eq (Equation_t* eq)
 {
-    equation->x1 = -equation->c / equation->b;
-    return 0;
+
+    double b = eq->coeffs.b;
+    double c = eq->coeffs.c;
+    (&eq->roots)->x1 = - c / b;
 }
 
-//------------------------------------------------------
-//! Solves a square equation with non-zero a-coefficient
-//!
-//! @param  equation  pointer to a Equation_t, containing
-//!                   a, b, c -coefficients, roots x1, x2
-//!                   and number of roots;
-//!
-//! @return Number of roots
-//------------------------------------------------------
-
-SolutionCount_t solve_quadratic_eq (Equation_t* equation)
+void solve_quadratic_eq (Equation_t* eq)
 {
-    double discr = equation->b * equation->b - 4 * equation->a * equation->c;
+    double a = eq->coeffs.a;
+    double b = eq->coeffs.b;
+    double c = eq->coeffs.c;
+
+    double discr = b * b - 4 * a * c;
 
     if (is_zero (discr))
     {
-        equation->x1 = - equation->b / (2 * equation->a);
-        return ONE_SOL;
+        (&eq->roots)->x1 = - b / (2 * a);
+        (&eq->roots)->RootsCount = ONE_SOL;
+        return;
     }
     else if (less_than_zero (discr))
     {
-        return ZERO_SOL;
+        (&eq->roots)->RootsCount = ZERO_SOL;
+        return;
     }
     else
     {
         double sqrt_discr = sqrt (discr);
 
-        equation->x1 = (- equation->b + sqrt_discr) / (2 * equation->a);
-        equation->x2 = (- equation->b - sqrt_discr) / (2 * equation->a);
+        (&eq->roots)->x1 = (- b + sqrt_discr) / (2 * a);
+        (&eq->roots)->x2 = (- b - sqrt_discr) / (2 * a);
 
-        return TWO_SOL;
+        (&eq->roots)->RootsCount = TWO_SOL;
+        return;
     }
-    return ROOTSCOUNT_ERROR;
+    (&eq->roots)->RootsCount = ROOTSCOUNT_ERROR;
 }
-
-//----------------
 
 int less_than_zero (double value)
 {

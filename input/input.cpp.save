@@ -1,14 +1,21 @@
 #include "input.h"
 
-
-void get_file_input ()
+int get_console_input (Coeffs_t* coeffs)
 {
     printf ("Enter coefficients\na, b, c: ");
-    user_active = get_input (&equation.coeffs, stream);
+    int user_active = get_input (coeffs, stdin);
+    return user_active
 }
 
-void get_console_input ()
-
+int get_file_input (Coeffs_t* coeffs, FILE* stream)
+{
+    int user_active = get_input (coeffs, stream);
+    printf ("a, b, c: %lg %lg %lg\n",
+                     coeffs.a,
+                     coeffs.b,
+                     coeffs.c);
+    return user_active;
+}
 
 int check_for_file (int argc, char* argv[], FILE** stream)
 {

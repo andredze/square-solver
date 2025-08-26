@@ -28,17 +28,11 @@ int main (int argc, char* argv[])
     {
         if (stream == stdin)
         {
-            printf ("Enter coefficients\na, b, c: ");
+            user_active = get_console_input (&equation.coeffs);
         }
-
-        user_active = get_input (&equation.coeffs, stream);
-
-        if (stream != stdin)
+        else
         {
-            printf ("a, b, c: %lg %lg %lg\n",
-                     equation.coeffs.a,
-                     equation.coeffs.b,
-                     equation.coeffs.c);
+            user_active = get_file_input (&equation.coeffs, stream);
         }
         if (user_active)
         {

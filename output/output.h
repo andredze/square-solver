@@ -1,5 +1,8 @@
 //! @file
 
+#ifndef OUTPUT_H
+#define OUTPUT_H
+
 #include "../common.h"
 
 //---------------------------------------------------
@@ -10,3 +13,5 @@
 //---------------------------------------------------
 
 void print_answer (Roots_t* roots);
+
+#endif // OUTPUT_H

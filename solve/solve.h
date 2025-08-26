@@ -1,5 +1,8 @@
 //! @file
 
+#ifndef SOLVE_H
+#define SOLVE_H
+
 #include "../common.h"
 
 //---------------------------------------------------------------------------
@@ -66,3 +69,5 @@ int less_than_zero (double value);
 //-------------------------------------------------
 
 int are_equal (double value1, double value2);
+
+#endif // SOLVE_H
