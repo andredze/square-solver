@@ -9,9 +9,11 @@
 //! @param  [in]  argc  Amount of arguments given in terminal
 //! @param  [in]  argv  Pointer to an array with terminal arguments
 //! @param  [out] stream  Pointer to a FILE*
+//!
+//! @return 0 if it is fine
 //-------------------------------------------------------------------
 
-void check_for_file (int argc, char* argv[], FILE** stream);
+int check_for_file (int argc, char* argv[], FILE** stream);
 
 //-----------------------------------------------------
 //! Gets coefficients for ax2 + bx + c = 0 equation
@@ -22,7 +24,7 @@ void check_for_file (int argc, char* argv[], FILE** stream);
 //! @param  stream  Pointer to a FILE, redirecting
 //!                 to the file stream
 //!
-//! @return 1 if user wants to exit. Else 0
+//! @return 0 if user wants to exit. Else 1
 //!
 //! @note   Prints an error in case of a wrong input and
 //!         allows to re-enter; EOF to exit the function

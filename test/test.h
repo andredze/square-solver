@@ -33,3 +33,14 @@ int test_equation_example (Equation_t* expected);
 //-------------------------------------------------------------
 
 int test_creating_error ();
+
+//-------------------------------------------------------------
+//! Compares two Equation_t objects
+//!
+//! @param [in]  eq1  Pointer to the first Equation_t
+//! @param [in]  eq2  Pointer to the second Equation_t
+//!
+//! @return 1 if they equal
+//-------------------------------------------------------------
+
+int equal_equation_t (Equation_t* eq1, Equation_t* eq2);

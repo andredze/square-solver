@@ -53,11 +53,7 @@ int test_equation_example (Equation_t* exp)
     double x2_ref = exp->roots.x2;
     double RootsCount_ref = exp->roots.RootsCount;
 
-    if (!(RootsCount == RootsCount_ref &&
-        ((are_equal (x1, x1_ref) &&
-          are_equal (x2, x2_ref)) ||
-         (are_equal (x1, x2_ref) &&
-          are_equal (x2, x1_ref)))))
+    if (!(equal_equation_t (exp, &real)))
     {
         printf ("Oh no: solve_equation (%lg, %lg, %lg) -> "
                 "RootsCount = %d, x1 = %lg, x2 = %lg "
@@ -72,4 +68,19 @@ int test_creating_error ()
 {
     printf ("\nError in creating texts.txt\n");
     return -1;
+}
+
+int equal_equation_t (Equation_t* eq1, Equation_t* eq2)
+{
+    double x1 = eq1->roots.x1;
+    double x2 = eq1->roots.x2;
+    double RootsCount = eq1->roots.RootsCount;
+
+    double x1_ref = eq2->roots.x1;
+    double x2_ref = eq2->roots.x2;
+    double RootsCount_ref = eq2->roots.RootsCount;
+
+    return RootsCount == RootsCount_ref &&
+          (x1 == x1_ref && x2 == x2_ref ||
+           x1 == x2_ref && x2 == x1_ref);
 }

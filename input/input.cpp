@@ -1,17 +1,23 @@
 #include "input.h"
 
-void check_for_file (int argc, char* argv[], FILE** stream)
+int check_for_file (int argc, char* argv[], FILE** stream)
 {
     if (argc != 1)
     {
         *stream = fopen (argv[1], "r");
+        if (*stream == NULL)
+        {
+            printf ("Error: cannot open %s\n", argv[1]);
+            return 1;
+        }
     }
+    return 0;
 }
 
 int get_input (Coeffs_t* coeffs, FILE* stream)
 {
     char line[MAXLEN] = {};
-    int user_exit = 0;
+    int user_active = 1;
 
     while (1)
     {
@@ -28,10 +34,10 @@ int get_input (Coeffs_t* coeffs, FILE* stream)
         }
         else
         {
-            user_exit = 1;
+            user_active = 0;
             break;
         }
     }
 
-    return user_exit;
+    return user_active;
 }
