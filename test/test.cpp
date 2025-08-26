@@ -4,7 +4,6 @@
 
 int test_solve_equation ()
 {
-
     int failed = 0;
     char line[MAXLEN] = {0};
 
@@ -29,6 +28,10 @@ int test_solve_equation ()
         {
             return test_creating_error ();
         }
+    }
+    if (!failed)
+    {
+        printf ("\n");
     }
     return failed;
 }

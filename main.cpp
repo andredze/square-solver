@@ -6,16 +6,12 @@
 
 int main (int argc, char* argv[])
 {
-    FILE* stream = stdin;
-
-    if (argc != 1)
-    {
-        stream = fopen (argv[1], "r");
-    }
-    printf ("<Square equations solver>\n");
+    printf ("\n--------------KVADRATKA--------------\n\n");
 
     test_solve_equation ();
-    printf ("\n");
+
+    FILE* stream = stdin;
+    check_for_file (argc, argv, &stream);
 
     Equation_t equation = {.coeffs = {.a = 0,
                                       .b = 0,
@@ -33,6 +29,7 @@ int main (int argc, char* argv[])
         }
 
         user_exit = get_input (&equation.coeffs, stream);
+
         if (stream != stdin)
         {
             printf ("a, b, c: %lg %lg %lg\n",

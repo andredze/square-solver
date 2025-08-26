@@ -1,5 +1,9 @@
-## KVADRATKA
+# KVADRATKA
 ### Made on LETKA by KSA
+
+Programm solves an quadratic equation with data from file or console
+
+## Build and usage
 
 Build:
 ```powershell

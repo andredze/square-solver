@@ -2,6 +2,17 @@
 
 #include "../common.h"
 
+//-------------------------------------------------------------------
+//! Checks terminal input for file. Sets stream to file
+//! if it was given
+//!
+//! @param  [in]  argc  Amount of arguments given in terminal
+//! @param  [in]  argv  Pointer to an array with terminal arguments
+//! @param  [out] stream  Pointer to a FILE*
+//-------------------------------------------------------------------
+
+void check_for_file (int argc, char* argv[], FILE** stream);
+
 //-----------------------------------------------------
 //! Gets coefficients for ax2 + bx + c = 0 equation
 //! from keyboard

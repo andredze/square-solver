@@ -1,6 +1,14 @@
 #include "../common.h"
 #include "input.h"
 
+void check_for_file (int argc, char* argv[], FILE** stream)
+{
+    if (argc != 1)
+    {
+        *stream = fopen (argv[1], "r");
+    }
+}
+
 int get_input (Coeffs_t* coeffs, FILE* stream)
 {
     char line[MAXLEN] = {};

@@ -1,14 +1,24 @@
 //! @file
 
-#include "common.h"
+#include "../common.h"
+
+//-----------------------------------------------------
+//! Checks terminal input for file. Sets stream to file
+//! if it was given
+//!
+//! @param  [in]  argc  Amount of words given in terminal
+//! @param  [in]  argv
+//! @param  [out] stream  Pointer to a FILE*
+//-----------------------------------------------------
+
+void check_for_file (int argc, char* argv[], FILE** stream);
 
 //-----------------------------------------------------
 //! Gets coefficients for ax2 + bx + c = 0 equation
 //! from keyboard
 //!
 //! @param  coeffs  Pointer to a Coeffs_t, containing
-//!                   a, b, c -coefficients;
-//
+//!                 a, b, c -coefficients;
 //! @param  stream  Pointer to a FILE, redirecting
 //!                 to the file stream
 //!
