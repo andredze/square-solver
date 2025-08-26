@@ -29,7 +29,7 @@ int main (int argc, char* argv[])
     {
         if (stream == stdin)
         {
-            printf ("Coefficients\nEnter a, b, c: ");
+            printf ("Enter coefficients\na, b, c: ");
         }
 
         user_exit = get_input (&equation.coeffs, stream);
@@ -50,5 +50,6 @@ int main (int argc, char* argv[])
         print_answer (&equation.roots);
     }
 
+    printf ("\n------------COMMIT TO GIT------------\n");
     return 0;
 }
