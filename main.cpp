@@ -43,7 +43,7 @@ int main (int argc, char* argv[])
             break;
         }
 
-        equation.roots.RootsCount = solve_equation (&equation);
+        solve_equation (&equation);
         print_answer (&equation.roots);
     }
 

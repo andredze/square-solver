@@ -1,4 +1,3 @@
-#include "../common.h"
 #include "output.h"
 
 void print_answer (Roots_t* roots)

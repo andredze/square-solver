@@ -1,4 +1,3 @@
-#include "../common.h"
 #include "input.h"
 
 void check_for_file (int argc, char* argv[], FILE** stream)

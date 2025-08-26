@@ -1,26 +1,31 @@
-#include "../common.h"
 #include "solve.h"
 
-SolutionCount_t solve_equation (Equation_t* equation)
+void solve_equation (Equation_t* eq)
 {
-    if (is_zero (equation->coeffs.a))
+    double a = eq->coeffs.a;
+    double b = eq->coeffs.b;
+    double c = eq->coeffs.c;
+
+    if (is_zero (a))
     {
-        if (is_zero (equation->coeffs.b))
+        if (is_zero (b))
         {
-            return is_zero(equation->coeffs.c) ? INF_SOL : ZERO_SOL;
+            (&eq->roots)->RootsCount = is_zero(c) ? INF_SOL : ZERO_SOL;
+            return;
         }
         else // (b != 0)
         {
-            solve_linear_eq (equation);
-            return ONE_SOL;
+            solve_linear_eq (eq);
+            (&eq->roots)->RootsCount = ONE_SOL;
+            return;
         }
     }
     else // (a != 0)
     {
-        SolutionCount_t roots_of_quad =  solve_quadratic_eq (equation);
-        return roots_of_quad;
+        solve_quadratic_eq (eq);
+        return;
     }
-    return ROOTSCOUNT_ERROR;
+    (&eq->roots)->RootsCount = ROOTSCOUNT_ERROR;
 }
 
 int is_zero (double value)
@@ -28,34 +33,44 @@ int is_zero (double value)
     return fabs(value) <= EPS;
 }
 
-void solve_linear_eq (Equation_t* equation)
+void solve_linear_eq (Equation_t* eq)
 {
-    (&equation->roots)->x1 = - equation->coeffs.c / equation->coeffs.b;
+
+    double b = eq->coeffs.b;
+    double c = eq->coeffs.c;
+    (&eq->roots)->x1 = - c / b;
 }
 
-SolutionCount_t solve_quadratic_eq (Equation_t* eq)
+void solve_quadratic_eq (Equation_t* eq)
 {
-    double discr = eq->coeffs.b * eq->coeffs.b - 4 * eq->coeffs.a * eq->coeffs.c;
+    double a = eq->coeffs.a;
+    double b = eq->coeffs.b;
+    double c = eq->coeffs.c;
+
+    double discr = b * b - 4 * a * c;
 
     if (is_zero (discr))
     {
-        (&eq->roots)->x1 = - eq->coeffs.b / (2 * eq->coeffs.a);
-        return ONE_SOL;
+        (&eq->roots)->x1 = - b / (2 * a);
+        (&eq->roots)->RootsCount = ONE_SOL;
+        return;
     }
     else if (less_than_zero (discr))
     {
-        return ZERO_SOL;
+        (&eq->roots)->RootsCount = ZERO_SOL;
+        return;
     }
     else
     {
         double sqrt_discr = sqrt (discr);
 
-        (&eq->roots)->x1 = (- eq->coeffs.b + sqrt_discr) / (2 * eq->coeffs.a);
-        (&eq->roots)->x2 = (- eq->coeffs.b - sqrt_discr) / (2 * eq->coeffs.a);
+        (&eq->roots)->x1 = (- b + sqrt_discr) / (2 * a);
+        (&eq->roots)->x2 = (- b - sqrt_discr) / (2 * a);
 
-        return TWO_SOL;
+        (&eq->roots)->RootsCount = TWO_SOL;
+        return;
     }
-    return ROOTSCOUNT_ERROR;
+    (&eq->roots)->RootsCount = ROOTSCOUNT_ERROR;
 }
 
 int less_than_zero (double value)

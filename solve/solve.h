@@ -12,7 +12,7 @@
 //! @return SolutionCount_t object, encountering number of roots
 //---------------------------------------------------------------------------
 
-SolutionCount_t solve_equation (Equation_t* equation);
+void solve_equation (Equation_t* equation);
 
 //-----------------------------------------------------
 //! Checks if the number is equal to zero (within EPS)
@@ -44,7 +44,7 @@ void solve_linear_eq (Equation_t* equation);
 //! @return Number of roots
 //------------------------------------------------------
 
-SolutionCount_t solve_quadratic_eq (Equation_t* equation);
+void solve_quadratic_eq (Equation_t* equation);
 
 //-------------------------------------------------
 //! Checks if number is less than zero

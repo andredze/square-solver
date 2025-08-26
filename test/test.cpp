@@ -1,4 +1,3 @@
-#include "../common.h"
 #include "test.h"
 #include "../solve/solve.h"
 
@@ -43,7 +42,7 @@ int test_equation_example (Equation_t* exp)
                         exp->coeffs.c},
                         {ZERO_SOL, 0, 0}};
 
-    real.roots.RootsCount = solve_equation (&real);
+    solve_equation (&real);
 
     if (!(real.roots.RootsCount == exp->roots.RootsCount &&
         ((are_equal (real.roots.x1, exp->roots.x1) &&
