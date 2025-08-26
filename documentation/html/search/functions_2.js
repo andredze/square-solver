@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['is_5fzero_0',['is_zero',['../solve_8h.html#ab00d912be3ba37c91acb349ae26da7f4',1,'solve.cpp']]]
+  ['get_5finput_0',['get_input',['../input_8h.html#a353ddfd524c037eac695f075ace95923',1,'input.cpp']]]
 ];

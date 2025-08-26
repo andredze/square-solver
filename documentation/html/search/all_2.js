@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['coeffs_0',['Coeffs',['../struct_coeffs.html',1,'']]]
+  ['check_5ffor_5ffile_0',['check_for_file',['../input_8h.html#a632efccf4027f453a99b3db9dee7190d',1,'input.cpp']]],
+  ['coeffs_1',['Coeffs',['../struct_coeffs.html',1,'']]]
 ];
