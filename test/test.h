@@ -1,6 +1,6 @@
 //! @file
 
-#include "common.h"
+#include "../common.h"
 
 //---------------------------------------------------------------
 //! Tests solve_equation() by inputting different structures with
@@ -24,4 +24,12 @@ int test_solve_equation ();
 //! @return 1 in case of a mistake; 0 if everything is fine
 //---------------------------------------------------------------
 
-int test_equation_example (Equation_t* ptr);
+int test_equation_example (Equation_t* expected);
+
+//-------------------------------------------------------------
+//! Prints an error and returns -1
+//!
+//! @return -1
+//-------------------------------------------------------------
+
+int test_creating_error ();

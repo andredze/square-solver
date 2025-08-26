@@ -1,26 +1,28 @@
 #include "common.h"
-#include "test.h"
-#include "input.h"
-#include "solve.h"
-#include "output.h"
+#include "test/test.h"
+#include "input/input.h"
+#include "solve/solve.h"
+#include "output/output.h"
 
-int main () {
+int main (int argc, char* argv[])
+{
+    FILE* stream = stdin;
 
+    if (argc != 1)
+    {
+        stream = fopen (argv[1], "r");
+    }
     printf ("<Square equations solver>\n");
 
     test_solve_equation ();
+    printf ("\n");
 
-    Equation_t equation = {0, 0, 0, 0, 0, ZERO_SOL};
-
-    FILE* stream = stdin;
-
-    int is_from_file = 0;
-
-    if (is_from_file)
-    {
-        stream = fopen ("file.txt", "r");
-    }
-
+    Equation_t equation = {.coeffs = {.a = 0,
+                                      .b = 0,
+                                      .c = 0},
+                           .roots  = {.RootsCount = ZERO_SOL,
+                                      .x1 = 0,
+                                      .x2 = 0}};
     int user_exit = 0;
 
     while (!(user_exit))
@@ -30,10 +32,13 @@ int main () {
             printf ("Coefficients\nEnter a, b, c: ");
         }
 
-        user_exit = get_input (&equation, stream);
+        user_exit = get_input (&equation.coeffs, stream);
         if (stream != stdin)
         {
-            printf ("a, b, c: %lg %lg %lg\n", equation.a, equation.b, equation.c);
+            printf ("a, b, c: %lg %lg %lg\n",
+                     equation.coeffs.a,
+                     equation.coeffs.b,
+                     equation.coeffs.c);
         }
 
         if (user_exit)
@@ -41,8 +46,8 @@ int main () {
             break;
         }
 
-        equation.RootsCount = solve_equation (&equation);
-        print_answer (&equation);
+        equation.roots.RootsCount = solve_equation (&equation);
+        print_answer (&equation.roots);
     }
 
     return 0;

@@ -1,14 +1,13 @@
 //! @file
 
-#include "common.h"
+#include "../common.h"
 
 //-----------------------------------------------------
 //! Gets coefficients for ax2 + bx + c = 0 equation
 //! from keyboard
 //!
-//! @param  equation  Pointer to a Equation_t, containing
-//!                   a, b, c -coefficients, roots x1, x2
-//!                   and number of roots;
+//! @param  coeffs  Pointer to a Coeffs_t, containing
+//!                 a, b, c -coefficients;
 //! @param  stream  Pointer to a FILE, redirecting
 //!                 to the file stream
 //!
@@ -18,4 +17,4 @@
 //!         allows to re-enter; EOF to exit the function
 //-----------------------------------------------------
 
-int get_input (Equation_t* equation, FILE* stream);
+int get_input (Coeffs_t* coeffs, FILE* stream);

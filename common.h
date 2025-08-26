@@ -15,13 +15,21 @@ typedef enum SolutionCount {
     ROOTSCOUNT_ERROR
 } SolutionCount_t;
 
-typedef struct Equation {
+typedef struct Coeffs {
     double a;
     double b;
     double c;
+} Coeffs_t;
+
+typedef struct Roots {
+    SolutionCount_t RootsCount;
     double x1;
     double x2;
-    SolutionCount_t RootsCount;
+} Roots_t;
+
+typedef struct Equation {
+    Coeffs_t coeffs;
+    Roots_t roots;
 } Equation_t;
 
 #endif //SIMPLE_EXAMPLE_TESTS_H

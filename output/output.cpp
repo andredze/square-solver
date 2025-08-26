@@ -1,18 +1,18 @@
-#include "common.h"
+#include "../common.h"
 #include "output.h"
 
-void print_answer (Equation_t* equation)
+void print_answer (Roots_t* roots)
 {
-    switch (equation->RootsCount)
+    switch (roots->RootsCount)
     {
     case ZERO_SOL:
         printf ("Zero roots");
         break;
     case ONE_SOL:
-        printf ("x = %lg", equation->x1);
+        printf ("x = %lg", roots->x1);
         break;
     case TWO_SOL:
-        printf ("x1 = %lg\nx2 = %lg", equation->x1, equation->x2);
+        printf ("x1 = %lg\nx2 = %lg", roots->x1, roots->x2);
         break;
     case INF_SOL:
         printf ("Infinite amount of roots");

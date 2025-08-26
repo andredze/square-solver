@@ -1,13 +1,13 @@
-#include "common.h"
+#include "../common.h"
 #include "solve.h"
 
 SolutionCount_t solve_equation (Equation_t* equation)
 {
-    if (is_zero (equation->a))
+    if (is_zero (equation->coeffs.a))
     {
-        if (is_zero (equation->b))
+        if (is_zero (equation->coeffs.b))
         {
-            return is_zero(equation->c) ? INF_SOL : ZERO_SOL;
+            return is_zero(equation->coeffs.c) ? INF_SOL : ZERO_SOL;
         }
         else // (b != 0)
         {
@@ -30,16 +30,16 @@ int is_zero (double value)
 
 void solve_linear_eq (Equation_t* equation)
 {
-    equation->x1 = -equation->c / equation->b;
+    (&equation->roots)->x1 = - equation->coeffs.c / equation->coeffs.b;
 }
 
-SolutionCount_t solve_quadratic_eq (Equation_t* equation)
+SolutionCount_t solve_quadratic_eq (Equation_t* eq)
 {
-    double discr = equation->b * equation->b - 4 * equation->a * equation->c;
+    double discr = eq->coeffs.b * eq->coeffs.b - 4 * eq->coeffs.a * eq->coeffs.c;
 
     if (is_zero (discr))
     {
-        equation->x1 = - equation->b / (2 * equation->a);
+        (&eq->roots)->x1 = - eq->coeffs.b / (2 * eq->coeffs.a);
         return ONE_SOL;
     }
     else if (less_than_zero (discr))
@@ -50,8 +50,8 @@ SolutionCount_t solve_quadratic_eq (Equation_t* equation)
     {
         double sqrt_discr = sqrt (discr);
 
-        equation->x1 = (- equation->b + sqrt_discr) / (2 * equation->a);
-        equation->x2 = (- equation->b - sqrt_discr) / (2 * equation->a);
+        (&eq->roots)->x1 = (- eq->coeffs.b + sqrt_discr) / (2 * eq->coeffs.a);
+        (&eq->roots)->x2 = (- eq->coeffs.b - sqrt_discr) / (2 * eq->coeffs.a);
 
         return TWO_SOL;
     }

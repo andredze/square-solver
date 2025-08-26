@@ -1,0 +1,66 @@
+#include "../common.h"
+#include "test.h"
+#include "../solve/solve.h"
+
+int test_solve_equation ()
+{
+
+    int failed = 0;
+    char line[MAXLEN] = {0};
+
+    FILE* stream = fopen ("./test/tests.txt", "r");
+
+    Equation_t equation = {.coeffs = {.a = 0,
+                                      .b = 0,
+                                      .c = 0},
+                           .roots  = {.RootsCount = ZERO_SOL,
+                                      .x1 = 0,
+                                      .x2 = 0}};
+
+    while (fgets (line, MAXLEN, stream) != NULL)
+    {
+        if (sscanf (line, "%lg %lg %lg %d %lg %lg",
+                    &equation.coeffs.a, &equation.coeffs.b, &equation.coeffs.c,
+                    &equation.roots.RootsCount, &equation.roots.x1, &equation.roots.x2) == 6)
+        {
+            failed += test_equation_example (&equation);
+        }
+        else
+        {
+            return test_creating_error ();
+        }
+    }
+    return failed;
+}
+
+int test_equation_example (Equation_t* exp)
+{
+    Equation_t real = {{exp->coeffs.a,
+                        exp->coeffs.b,
+                        exp->coeffs.c},
+                        {ZERO_SOL, 0, 0}};
+
+    real.roots.RootsCount = solve_equation (&real);
+
+    if (!(real.roots.RootsCount == exp->roots.RootsCount &&
+        ((are_equal (real.roots.x1, exp->roots.x1) &&
+          are_equal (real.roots.x2, exp->roots.x2)) ||
+         (are_equal (real.roots.x1, exp->roots.x2) &&
+          are_equal (real.roots.x2, exp->roots.x1)))))
+    {
+        printf ("Oh no: solve_equation (%lg, %lg, %lg) -> "
+                "RootsCount = %d, x1 = %lg, x2 = %lg "
+                "(should be RootsCount = %d, x1 = %lg, x2 = %lg)\n",
+                exp->coeffs.a, exp->coeffs.b, exp->coeffs.c,
+                real.roots.RootsCount, real.roots.x1, real.roots.x2,
+                exp->roots.RootsCount, exp->roots.x1, exp->roots.x2);
+        return 1;
+    }
+    return 0;
+}
+
+int test_creating_error ()
+{
+    printf ("\nError in creating texts.txt\n");
+    return -1;
+}

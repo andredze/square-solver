@@ -1,0 +1,118 @@
+\doxysection{solve.\+h File Reference}
+\hypertarget{solve_8h}{}\label{solve_8h}\index{solve.h@{solve.h}}
+{\ttfamily \#include "{}common.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Solution\+Count\+\_\+t \mbox{\hyperlink{solve_8h_a01495e01c968cf11041a817b1fc68b68}{solve\+\_\+equation}} (\mbox{\hyperlink{struct_equation}{Equation\+\_\+t}} \texorpdfstring{$\ast$}{*}equation)
+\item 
+int \mbox{\hyperlink{solve_8h_ab00d912be3ba37c91acb349ae26da7f4}{is\+\_\+zero}} (double value)
+\item 
+void \mbox{\hyperlink{solve_8h_acbe4f085a46e0569b81b03b495e31333}{solve\+\_\+linear\+\_\+eq}} (\mbox{\hyperlink{struct_equation}{Equation\+\_\+t}} \texorpdfstring{$\ast$}{*}equation)
+\item 
+Solution\+Count\+\_\+t \mbox{\hyperlink{solve_8h_ac4f6383761f62a71e19234a5ea050347}{solve\+\_\+quadratic\+\_\+eq}} (\mbox{\hyperlink{struct_equation}{Equation\+\_\+t}} \texorpdfstring{$\ast$}{*}equation)
+\item 
+int \mbox{\hyperlink{solve_8h_a60ef6e46c65a2ffb5bb1022f3724f8f3}{less\+\_\+than\+\_\+zero}} (double value)
+\item 
+int \mbox{\hyperlink{solve_8h_acb31c9fa680827c9cb1efa4a1b579d5d}{are\+\_\+equal}} (double value1, double value2)
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{solve_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{solve_8h_acb31c9fa680827c9cb1efa4a1b579d5d}\index{solve.h@{solve.h}!are\_equal@{are\_equal}}
+\index{are\_equal@{are\_equal}!solve.h@{solve.h}}
+\doxysubsubsection{\texorpdfstring{are\_equal()}{are\_equal()}}
+{\footnotesize\ttfamily \label{solve_8h_acb31c9fa680827c9cb1efa4a1b579d5d} 
+int are\+\_\+equal (\begin{DoxyParamCaption}\item[{double}]{value1}{, }\item[{double}]{value2}{}\end{DoxyParamCaption})}
+
+Checks if two numbers are equal
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em value1} & First number \\
+\hline
+\mbox{\texttt{in}}  & {\em value2} & Second number\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if numbers are equal; 0 if not 
+\end{DoxyReturn}
+\Hypertarget{solve_8h_ab00d912be3ba37c91acb349ae26da7f4}\index{solve.h@{solve.h}!is\_zero@{is\_zero}}
+\index{is\_zero@{is\_zero}!solve.h@{solve.h}}
+\doxysubsubsection{\texorpdfstring{is\_zero()}{is\_zero()}}
+{\footnotesize\ttfamily \label{solve_8h_ab00d912be3ba37c91acb349ae26da7f4} 
+int is\+\_\+zero (\begin{DoxyParamCaption}\item[{double}]{value}{}\end{DoxyParamCaption})}
+
+Checks if the number is equal to zero (within EPS)
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em value} & Any number\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if number is zero; 0 if not 
+\end{DoxyReturn}
+\Hypertarget{solve_8h_a60ef6e46c65a2ffb5bb1022f3724f8f3}\index{solve.h@{solve.h}!less\_than\_zero@{less\_than\_zero}}
+\index{less\_than\_zero@{less\_than\_zero}!solve.h@{solve.h}}
+\doxysubsubsection{\texorpdfstring{less\_than\_zero()}{less\_than\_zero()}}
+{\footnotesize\ttfamily \label{solve_8h_a60ef6e46c65a2ffb5bb1022f3724f8f3} 
+int less\+\_\+than\+\_\+zero (\begin{DoxyParamCaption}\item[{double}]{value}{}\end{DoxyParamCaption})}
+
+Checks if number is less than zero
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em value} & Verifiable number\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if number is less than zero; 0 if not 
+\end{DoxyReturn}
+\Hypertarget{solve_8h_a01495e01c968cf11041a817b1fc68b68}\index{solve.h@{solve.h}!solve\_equation@{solve\_equation}}
+\index{solve\_equation@{solve\_equation}!solve.h@{solve.h}}
+\doxysubsubsection{\texorpdfstring{solve\_equation()}{solve\_equation()}}
+{\footnotesize\ttfamily \label{solve_8h_a01495e01c968cf11041a817b1fc68b68} 
+Solution\+Count\+\_\+t solve\+\_\+equation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_equation}{Equation\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{equation}{}\end{DoxyParamCaption})}
+
+Solves a square equation ax2 + bx + c = 0 (or linear in case of a == 0)
+
+
+\begin{DoxyParams}{Parameters}
+{\em equation} & pointer to a Equation\+\_\+t, containing a, b, c -\/coefficients, roots x1, x2 and number of roots;\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Solution\+Count\+\_\+t object, encountering number of roots 
+\end{DoxyReturn}
+\Hypertarget{solve_8h_acbe4f085a46e0569b81b03b495e31333}\index{solve.h@{solve.h}!solve\_linear\_eq@{solve\_linear\_eq}}
+\index{solve\_linear\_eq@{solve\_linear\_eq}!solve.h@{solve.h}}
+\doxysubsubsection{\texorpdfstring{solve\_linear\_eq()}{solve\_linear\_eq()}}
+{\footnotesize\ttfamily \label{solve_8h_acbe4f085a46e0569b81b03b495e31333} 
+void solve\+\_\+linear\+\_\+eq (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_equation}{Equation\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{equation}{}\end{DoxyParamCaption})}
+
+Solves a linear equation bx + c = 0
+
+
+\begin{DoxyParams}{Parameters}
+{\em equation} & pointer to a Equation\+\_\+t, containing a, b, c -\/coefficients, roots x1, x2 and number of roots; \\
+\hline
+\end{DoxyParams}
+\Hypertarget{solve_8h_ac4f6383761f62a71e19234a5ea050347}\index{solve.h@{solve.h}!solve\_quadratic\_eq@{solve\_quadratic\_eq}}
+\index{solve\_quadratic\_eq@{solve\_quadratic\_eq}!solve.h@{solve.h}}
+\doxysubsubsection{\texorpdfstring{solve\_quadratic\_eq()}{solve\_quadratic\_eq()}}
+{\footnotesize\ttfamily \label{solve_8h_ac4f6383761f62a71e19234a5ea050347} 
+Solution\+Count\+\_\+t solve\+\_\+quadratic\+\_\+eq (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_equation}{Equation\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{equation}{}\end{DoxyParamCaption})}
+
+Solves a square equation with non-\/zero a-\/coefficient
+
+
+\begin{DoxyParams}{Parameters}
+{\em equation} & pointer to a Equation\+\_\+t, containing a, b, c -\/coefficients, roots x1, x2 and number of roots;\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of roots 
+\end{DoxyReturn}

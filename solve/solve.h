@@ -1,6 +1,6 @@
 //! @file
 
-#include "common.h"
+#include "../common.h"
 
 //---------------------------------------------------------------------------
 //! Solves a square equation ax2 + bx + c = 0 (or linear in case of a == 0)

@@ -1,16 +1,16 @@
-#include "common.h"
+#include "../common.h"
 #include "input.h"
 
-int get_input (Equation_t* equation, FILE* stream)
+int get_input (Coeffs_t* coeffs, FILE* stream)
 {
-    char line[MAXLEN];
+    char line[MAXLEN] = {};
     int user_exit = 0;
 
     while (1)
     {
         if (fgets (line, MAXLEN, stream) != NULL)
         {
-            if (sscanf (line, "%lg %lg %lg", &(equation->a), &(equation->b), &(equation->c)) != 3)
+            if (sscanf (line, "%lg %lg %lg", &(coeffs->a), &(coeffs->b), &(coeffs->c)) != 3)
             {
                 printf ("Viydi i vvedi normalno\n\n");
             }

@@ -1,0 +1,32 @@
+\doxysection{common.\+h}
+\hypertarget{common_8h_source}{}\label{common_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ SIMPLE\_EXAMPLE\_TESTS\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ SIMPLE\_EXAMPLE\_TESTS\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <math.h>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ EPS\ =\ 1e-\/8;}
+\DoxyCodeLine{00008\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ MAXLEN\ =\ 300;}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ SolutionCount\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ ZERO\_SOL,}
+\DoxyCodeLine{00012\ \ \ \ \ ONE\_SOL,}
+\DoxyCodeLine{00013\ \ \ \ \ TWO\_SOL,}
+\DoxyCodeLine{00014\ \ \ \ \ INF\_SOL,}
+\DoxyCodeLine{00015\ \ \ \ \ ROOTSCOUNT\_ERROR}
+\DoxyCodeLine{00016\ \}\ SolutionCount\_t;}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_equation}{Equation}}\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{double}\ a;}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{double}\ b;}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{double}\ c;}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{double}\ x1;}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{double}\ x2;}
+\DoxyCodeLine{00024\ \ \ \ \ SolutionCount\_t\ RootsCount;}
+\DoxyCodeLine{00025\ \}\ Equation\_t;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//SIMPLE\_EXAMPLE\_TESTS\_H}}
+
+\end{DoxyCode}
