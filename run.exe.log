@@ -1,0 +1,114 @@
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: D:\Coding\SquareSolver\square-solver\run.exe,
+
+ВНЕЗАПНО: Недопустимая операция с плавающей точкой.
+
+#1: Исключение EXCEPTION_FLT_INVALID_OPERATION (0xC0000090) при выполнении кода по адресу 0x00007FF7CE4B7B44 в функции solve_quadratic_eq() в файле D:/Coding/SquareSolver/square-solver/./solve/solve.cpp на строке 67 в модуле D:\Coding\SquareSolver\square-solver\run.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF7CE739850 (64-bit), Flags: Cmdre0, Thread: 0x4AF4 (Main), errno: 34 (Result too large). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF7CE4B7B44 in D:\Coding\SquareSolver\square-solver\run.exe: solve_quadratic_eq() at D:/Coding/SquareSolver/square-solver/./solve/solve.cpp:67:
+
+     65:         double sqrt_discr = sqrt (discr);
+     66: 
+=>   67:         (&eq->roots)->x1 = (- b + sqrt_discr) / (2 * a);
+     68:         (&eq->roots)->x2 = (- b - sqrt_discr) / (2 * a);
+     69: 
+
+# 1 0x00007FF7CE4B79C7 in D:\Coding\SquareSolver\square-solver\run.exe: solve_equation() at D:/Coding/SquareSolver/square-solver/./solve/solve.cpp:25:
+
+     23:     else // (a != 0)
+     24:     {
+=>   25:         solve_quadratic_eq (eq);
+     26:         return;
+     27:     }
+
+# 2 0x00007FF7CE421DAC in D:\Coding\SquareSolver\square-solver\run.exe: main() at D:/Coding/SquareSolver/square-solver/main.cpp:39:
+
+     37:         if (user_active)
+     38:         {
+=>   39:             solve_equation (&equation);
+     40:             print_answer (&equation.roots);
+     41:         }
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	D:\txlib\TX\TXLib.h
+Compiled:	Aug 27 2025 14:13:52, GNU g++ 15.1.0, std=201703L, MinGW-W64 Runtime 12.0.0 (alpha - rev. 0) 0000-00-00, 64-bit, DEBUG
+Started:	Aug 27 2025 14:20:15
+
+Run file:	D:\Coding\SquareSolver\square-solver\run.exe
+Directory:	D:\Coding\SquareSolver\square-solver
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: D:\Coding\SquareSolver\square-solver\run.exe,
+
+ВНЕЗАПНО: signal (8, 0x00): SIGFPE: Грубая ошибка в вычислениях. 
+
+Недопустимая операция с плавающей точкой.
+
+#1: Исключение EXCEPTION_FLT_INVALID_OPERATION (0xC0000090) при выполнении кода по адресу 0x00007FF7CE4B7B44 в функции solve_quadratic_eq() в файле D:/Coding/SquareSolver/square-solver/./solve/solve.cpp на строке 67 в модуле D:\Coding\SquareSolver\square-solver\run.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400], Instance: 0x00007FF7CE739850 (64-bit), Flags: Cmdre0, Thread: 0x4AF4 (Main), errno: 34 (Result too large). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00007FF7CE4B7B44 in D:\Coding\SquareSolver\square-solver\run.exe: solve_quadratic_eq() at D:/Coding/SquareSolver/square-solver/./solve/solve.cpp:67:
+
+     65:         double sqrt_discr = sqrt (discr);
+     66: 
+=>   67:         (&eq->roots)->x1 = (- b + sqrt_discr) / (2 * a);
+     68:         (&eq->roots)->x2 = (- b - sqrt_discr) / (2 * a);
+     69: 
+
+# 1 0x00007FF7CE4B79C7 in D:\Coding\SquareSolver\square-solver\run.exe: solve_equation() at D:/Coding/SquareSolver/square-solver/./solve/solve.cpp:25:
+
+     23:     else // (a != 0)
+     24:     {
+=>   25:         solve_quadratic_eq (eq);
+     26:         return;
+     27:     }
+
+# 2 0x00007FF7CE421DAC in D:\Coding\SquareSolver\square-solver\run.exe: main() at D:/Coding/SquareSolver/square-solver/main.cpp:39:
+
+     37:         if (user_active)
+     38:         {
+=>   39:             solve_equation (&equation);
+     40:             print_answer (&equation.roots);
+     41:         }
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-17 06:00:49 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	D:\txlib\TX\TXLib.h
+Compiled:	Aug 27 2025 14:13:52, GNU g++ 15.1.0, std=201703L, MinGW-W64 Runtime 12.0.0 (alpha - rev. 0) 0000-00-00, 64-bit, DEBUG
+Started:	Aug 27 2025 14:20:15
+
+Run file:	D:\Coding\SquareSolver\square-solver\run.exe
+Directory:	D:\Coding\SquareSolver\square-solver
+
+--------------------------------------------------
