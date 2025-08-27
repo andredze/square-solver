@@ -1,6 +1,7 @@
 #ifndef SIMPLE_EXAMPLE_TESTS_H
 #define SIMPLE_EXAMPLE_TESTS_H
 
+#include <TXLib.h>
 #include <stdio.h>
 #include <math.h>
 

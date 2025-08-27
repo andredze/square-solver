@@ -5,7 +5,24 @@
 
 #include "../common.h"
 
+//------------------------------------------------------------------
+//! Prints message to the user and gets the input from console
+//!
+//! @param  [in]  coeffs  Pointer to a Coeffs_t containing coefficients
+//!
+//! @return 0 if user wants to exit
+//------------------------------------------------------------------
+
 int get_console_input (Coeffs_t* coeffs);
+
+//------------------------------------------------------------------
+//! Prints message to the user and gets the input from file
+//!
+//! @param  [in]  coeffs  Pointer to a Coeffs_t containing coefficients
+//! @param  [in]  stream  file_stream
+//!
+//! @return 0 if user wants to exit
+//------------------------------------------------------------------
 
 int get_file_input (Coeffs_t* coeffs, FILE* stream);
 

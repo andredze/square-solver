@@ -36,7 +36,7 @@ int get_input (Coeffs_t* coeffs, FILE* stream)
     char line[MAXLEN] = {};
     int user_active = 1;
 
-    while (1)
+    while (user_active)
     {
         if (fgets (line, MAXLEN, stream) != NULL)
         {
@@ -52,7 +52,6 @@ int get_input (Coeffs_t* coeffs, FILE* stream)
         else
         {
             user_active = 0;
-            break;
         }
     }
 

@@ -19,7 +19,8 @@ int test_solve_equation ()
     {
         if (sscanf (line, "%lg %lg %lg %d %lg %lg",
                     &equation.coeffs.a, &equation.coeffs.b, &equation.coeffs.c,
-                    (int *) &equation.roots.RootsCount, &equation.roots.x1, &equation.roots.x2) == 6)
+                    (int *) &equation.roots.RootsCount,
+                    &equation.roots.x1, &equation.roots.x2) == 6)
         {
             failed += test_equation_example (&equation);
         }
