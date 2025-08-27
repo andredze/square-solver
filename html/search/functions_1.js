@@ -1,4 +1,0 @@
-var searchData=
-[
-  ['check_5ffor_5ffile_0',['check_for_file',['../input_8h.html#a2743af38ac42fd467b2c9241f5353d8b',1,'input.cpp']]]
-];

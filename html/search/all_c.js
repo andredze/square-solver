@@ -1,7 +1,0 @@
-var searchData=
-[
-  ['solve_2eh_0',['solve.h',['../solve_8h.html',1,'']]],
-  ['solve_5fequation_1',['solve_equation',['../solve_8h.html#a183d7a1c3ab9a8292793453dd127c01a',1,'solve.cpp']]],
-  ['solve_5flinear_5feq_2',['solve_linear_eq',['../solve_8h.html#acbe4f085a46e0569b81b03b495e31333',1,'solve.cpp']]],
-  ['solve_5fquadratic_5feq_3',['solve_quadratic_eq',['../solve_8h.html#a37184ec305ba2daaa3ad15d4f567d598',1,'solve.cpp']]]
-];

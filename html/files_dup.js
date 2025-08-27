@@ -1,8 +1,0 @@
-var files_dup =
-[
-    [ "input", "dir_d0411a3330e1b0f1a8484884e468d215.html", "dir_d0411a3330e1b0f1a8484884e468d215" ],
-    [ "output", "dir_cf6d034fbb8a82be17b39265b6ed736a.html", "dir_cf6d034fbb8a82be17b39265b6ed736a" ],
-    [ "solve", "dir_0e32d39947da5daa82ce35156b95c638.html", "dir_0e32d39947da5daa82ce35156b95c638" ],
-    [ "test", "dir_13e138d54eb8818da29c3992edef070a.html", "dir_13e138d54eb8818da29c3992edef070a" ],
-    [ "common.h", "common_8h_source.html", null ]
-];
