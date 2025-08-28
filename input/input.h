@@ -6,7 +6,7 @@
 #include "../common.h"
 
 //----------------------------------------------------------------
-//! Checks if strings are equal
+//! Checks if strings are equal jopa
 //!
 //! @param [in]  str1  first string
 //! @param [in]  str2  second string
