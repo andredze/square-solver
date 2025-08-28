@@ -3,8 +3,18 @@
 
 Programm solves an quadratic equation with data from file or console
 
-## Build and usage
+## Debug
+Debug build:
+```powershell
+  make debug
+```
+--------------------------------
+#### Debug commands
+- RUN
+- TEST
+--------------------------------
 
+## Build and usage
 Build:
 ```powershell
   make
