@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: programm/programm.h Source File</title>
+<title>My Project: debug_mode/debug_mode.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -62,7 +62,7 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-$(function(){initNavTree('programm_8h_source.html','',''); });
+$(function(){initNavTree('debug__mode_8h_source.html','',''); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -88,36 +88,30 @@ $(function(){initNavTree('programm_8h_source.html','',''); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">programm.h</div></div>
+  <div class="headertitle"><div class="title">debug_mode.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="programm_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<a href="debug__mode_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#ifndef PROGRAMM_H</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#define PROGRAMM_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#ifndef DEBUG_MODE_H</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#define DEBUG_MODE_H</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;../common.h&quot;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="input_8h.html">../input/input.h</a>&quot;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="solve_8h.html">../solve/solve.h</a>&quot;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="output_8h.html">../output/output.h</a>&quot;</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">//--------------------------------------------</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">//--------------------------------------------</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keywordtype">int</span> <a class="code hl_function" href="programm_8h.html#a21c886227f110bce0ec4af2cb97fbcab">run_programm</a> (<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>* argv[]);</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#endif </span><span class="comment">// PROGRAMM_H</span></div>
-<div class="ttc" id="ainput_8h_html"><div class="ttname"><a href="input_8h.html">input.h</a></div></div>
-<div class="ttc" id="aoutput_8h_html"><div class="ttname"><a href="output_8h.html">output.h</a></div></div>
-<div class="ttc" id="aprogramm_8h_html_a21c886227f110bce0ec4af2cb97fbcab"><div class="ttname"><a href="programm_8h.html#a21c886227f110bce0ec4af2cb97fbcab">run_programm</a></div><div class="ttdeci">int run_programm(int argc, char *argv[])</div><div class="ttdef"><b>Definition</b> programm.cpp:3</div></div>
-<div class="ttc" id="asolve_8h_html"><div class="ttname"><a href="solve_8h.html">solve.h</a></div></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">//---------------------------------------------------------</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">//---------------------------------------------------------</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keywordtype">int</span> <a class="code hl_function" href="debug__mode_8h.html#a25c014740adff25289b270256012bc8d">get_debug_mode</a> (<span class="keywordtype">char</span>* debug_mode);</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#endif </span><span class="comment">// DEBUG_MODE_H</span></div>
+<div class="ttc" id="adebug__mode_8h_html_a25c014740adff25289b270256012bc8d"><div class="ttname"><a href="debug__mode_8h.html#a25c014740adff25289b270256012bc8d">get_debug_mode</a></div><div class="ttdeci">int get_debug_mode(char *debug_mode)</div><div class="ttdef"><b>Definition</b> debug_mode.cpp:3</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_e50d041acd6658b122d93a1db27120f5.html">programm</a></li><li class="navelem"><a href="programm_8h.html">programm.h</a></li>
+    <li class="navelem"><a href="dir_9285c57d15ee4d53f512b1346bce752a.html">debug_mode</a></li><li class="navelem"><a href="debug__mode_8h.html">debug_mode.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>
