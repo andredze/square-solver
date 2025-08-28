@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['equal_5fequation_5ft_0',['equal_equation_t',['../test_8h.html#a9045526e3db1c9ccff10a90f8e9570cb',1,'test.cpp']]],
-  ['equation_1',['Equation',['../struct_equation.html',1,'']]]
+  ['debug_0',['Debug',['../md__r_e_a_d_m_e.html#autotoc_md2',1,'']]],
+  ['debug_20commands_1',['Debug commands',['../md__r_e_a_d_m_e.html#autotoc_md4',1,'']]]
 ];

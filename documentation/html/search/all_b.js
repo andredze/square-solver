@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['roots_0',['Roots',['../struct_roots.html',1,'']]],
-  ['run_5fprogramm_1',['run_programm',['../programm_8h.html#a21c886227f110bce0ec4af2cb97fbcab',1,'programm.cpp']]]
+  ['usage_0',['Build and usage',['../md__r_e_a_d_m_e.html#autotoc_md6',1,'']]]
 ];

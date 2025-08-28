@@ -1,33 +1,28 @@
 #include "common.h"
 #include "test/test.h"
 #include "programm/programm.h"
+#include "debug_mode/debug_mode.h"
 
 int main (int argc, char* argv[])
 {
 #ifdef DEBUG_MODE
-    printf ("Input debug mode: ");
     char debug_mode[MAXLEN] = "";
-    char line[MAXLEN] = "";
-    if (fgets (line, MAXLEN, stdin) == NULL)
-    {
-        printf ("Input the command\n");
-        return 1;
-    }
-    sscanf (line, "%s", debug_mode);
-    if (strcmp (debug_mode, "TEST"))
+    get_debug_mode (debug_mode);
+
+    if (strequal (debug_mode, "TEST") == 0)
     {
         test_solve_equation ();
     }
-    else if (strcmp (debug_mode, "RUN"))
+    else if (strequal (debug_mode, "RUN") == 0)
     {
+#endif
         run_programm (argc, argv);
+#ifdef DEBUG_MODE
     }
     else
     {
         printf ("Error: unknown debugging command\n");
     }
-#else
-    run_programm (argc, argv);
-#endif
+#endif /* DEBUG_MODE */
     return 0;
 }

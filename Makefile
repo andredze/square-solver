@@ -11,6 +11,7 @@ CXXFLAGS = -Wshadow -Winit-self -Wredundant-decls -Wcast-align -Wundef \
 			-D_EJUDGE_CLIENT_SIDE
 
 SOURCES = main.cpp \
+		  ./debug_mode/debug_mode.cpp \
 		  ./programm/programm.cpp \
 		  ./test/test.cpp \
 		  ./input/input.cpp \

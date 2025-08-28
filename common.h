@@ -1,9 +1,9 @@
 #ifndef SIMPLE_EXAMPLE_TESTS_H
 #define SIMPLE_EXAMPLE_TESTS_H
 
-#include <TXLib.h>
 #include <stdio.h>
 #include <math.h>
+#include <string.h>
 
 const double EPS = 1e-8; // Possible inaccuracy for float numbers
 const int MAXLEN = 300; // Maximum length of strings

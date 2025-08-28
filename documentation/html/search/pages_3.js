@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['letka_20by_20ksa_0',['Made on LETKA by KSA',['../md__r_e_a_d_m_e.html#autotoc_md1',1,'']]]
+  ['debug_0',['Debug',['../md__r_e_a_d_m_e.html#autotoc_md2',1,'']]],
+  ['debug_20commands_1',['Debug commands',['../md__r_e_a_d_m_e.html#autotoc_md4',1,'']]]
 ];

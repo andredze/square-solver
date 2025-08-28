@@ -5,7 +5,16 @@
 
 #include "../common.h"
 
-int strcmp (char* str1, const char* str2);
+//----------------------------------------------------------------
+//! Checks if strings are equal
+//!
+//! @param [in]  str1  first string
+//! @param [in]  str2  second string
+//!
+//! @return 1 if they are equal
+//----------------------------------------------------------------
+
+int strequal (const char* str1, const char* str2);
 
 //-------------------------------------------------------------------
 //! Checks terminal input for file. Sets stream to file
@@ -13,7 +22,7 @@ int strcmp (char* str1, const char* str2);
 //!
 //! @param  [in]  argc  Amount of arguments given in terminal
 //! @param  [in]  argv  Pointer to an array with terminal arguments
-//! @param  [out] stream  Pointer to a FILE*
+//! @param  [out]  stream  Pointer to a FILE*
 //!
 //! @return 0 if it is fine
 //-------------------------------------------------------------------
