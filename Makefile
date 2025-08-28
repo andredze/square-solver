@@ -10,12 +10,15 @@ CXXFLAGS = -Wshadow -Winit-self -Wredundant-decls -Wcast-align -Wundef \
 			-Wstrict-null-sentinel -Wtype-limits -Wwrite-strings -Werror=vla -D_DEBUG \
 			-D_EJUDGE_CLIENT_SIDE
 
-SOURCES = main.cpp ./test/test.cpp ./input/input.cpp ./solve/solve.cpp ./output/output.cpp
+SOURCES = main.cpp ./programm/programm.cpp ./test/test.cpp ./input/input.cpp ./solve/solve.cpp ./output/output.cpp
 
-EXECUTABLE = run
+EXECUTABLE = run.exe
 
 all:
 	$(CXX) $(FLAGS) $(SOURCES) -o $(EXECUTABLE)
 
+debug:
+	$(CXX) -DDEBUG_MODE $(FLAGS) $(SOURCES) -o $(EXECUTABLE)
+
 clean:
-	rm -f $(EXECUTABLE)
+	rm $(EXECUTABLE)

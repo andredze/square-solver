@@ -5,6 +5,21 @@
 
 #include "../common.h"
 
+int strcmp (char* str1, const char* str2);
+
+//-------------------------------------------------------------------
+//! Checks terminal input for file. Sets stream to file
+//! if it was given
+//!
+//! @param  [in]  argc  Amount of arguments given in terminal
+//! @param  [in]  argv  Pointer to an array with terminal arguments
+//! @param  [out] stream  Pointer to a FILE*
+//!
+//! @return 0 if it is fine
+//-------------------------------------------------------------------
+
+int check_for_file (int argc, char* argv[], FILE** stream);
+
 //------------------------------------------------------------------
 //! Prints message to the user and gets the input from console
 //!
@@ -25,19 +40,6 @@ int get_console_input (Coeffs_t* coeffs);
 //------------------------------------------------------------------
 
 int get_file_input (Coeffs_t* coeffs, FILE* stream);
-
-//-------------------------------------------------------------------
-//! Checks terminal input for file. Sets stream to file
-//! if it was given
-//!
-//! @param  [in]  argc  Amount of arguments given in terminal
-//! @param  [in]  argv  Pointer to an array with terminal arguments
-//! @param  [out] stream  Pointer to a FILE*
-//!
-//! @return 0 if it is fine
-//-------------------------------------------------------------------
-
-int check_for_file (int argc, char* argv[], FILE** stream);
 
 //-----------------------------------------------------
 //! Gets coefficients for ax2 + bx + c = 0 equation

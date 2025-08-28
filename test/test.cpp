@@ -1,9 +1,9 @@
 #include "test.h"
-#include "../solve/solve.h"
 
 int test_solve_equation ()
 {
-    int failed = 0;
+    int passed = 0;
+    int tests_count = 0;
     char line[MAXLEN] = {0};
 
     FILE* stream = fopen ("./test/tests.txt", "r");
@@ -22,18 +22,18 @@ int test_solve_equation ()
                     (int *) &equation.roots.RootsCount,
                     &equation.roots.x1, &equation.roots.x2) == 6)
         {
-            failed += test_equation_example (&equation);
+            passed += !test_equation_example (&equation);
         }
         else
         {
             return test_creating_error ();
         }
+        tests_count += 1;
     }
-    if (!failed)
-    {
-        printf ("\n");
-    }
-    return failed;
+
+    printf ("\nPassed tests: %d/%d\n", passed, tests_count);
+
+    return 0;
 }
 
 int test_equation_example (Equation_t* exp)
@@ -68,7 +68,7 @@ int test_equation_example (Equation_t* exp)
 int test_creating_error ()
 {
     printf ("\nError in creating texts.txt\n");
-    return -1;
+    return 1;
 }
 
 int equal_equation_t (Equation_t* eq1, Equation_t* eq2)

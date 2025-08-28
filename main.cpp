@@ -1,46 +1,32 @@
 #include "common.h"
 #include "test/test.h"
-#include "input/input.h"
-#include "solve/solve.h"
-#include "output/output.h"
+#include "programm/programm.h"
 
+#ifdef DEBUG_MODE
 int main (int argc, char* argv[])
 {
-    printf ("\n---------------MEOWDRATKA---------------\n\n");
+    printf ("Input debug mode: ");
+    char debug_mode[MAXLEN] = "";
+    scanf ("%s", debug_mode);
 
-    test_solve_equation ();
-
-    FILE* stream = stdin;
-    if (check_for_file (argc, argv, &stream))
+    if (strcmp (debug_mode, "TEST"))
     {
-        return 1;
+        test_solve_equation ();
     }
-
-    Equation_t equation = {.coeffs = {.a = 0,
-                                      .b = 0,
-                                      .c = 0},
-                           .roots  = {.RootsCount = ZERO_SOL,
-                                      .x1 = 0,
-                                      .x2 = 0}};
-    int user_active = 1;
-
-    while (user_active)
+    else if (strcmp (debug_mode, "RUN"))
     {
-        if (stream == stdin)
-        {
-            user_active = get_console_input (&equation.coeffs);
-        }
-        else
-        {
-            user_active = get_file_input (&equation.coeffs, stream);
-        }
-        if (user_active)
-        {
-            solve_equation (&equation);
-            print_answer (&equation.roots);
-        }
+        run_programm (argc, argv);
     }
-
-    printf ("\n-------------COMMIT TO GIT--------------\n");
+    else
+    {
+        printf ("Error: unknown debugging command\n");
+    }
     return 0;
 }
+
+#else
+int main (int argc, char* argv[])
+{
+    return run_programm (argc, argv);
+}
+#endif

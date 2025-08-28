@@ -4,15 +4,16 @@
 #define TEST_H
 
 #include "../common.h"
+#include "../solve/solve.h"
 
 //---------------------------------------------------------------
 //! Tests solve_equation() by inputting different structures with
 //! coefficients and expected results and comparing them with
-//! given answers
+//! given answers. Prints number of passed tests
 //!
 //! @param None
 //!
-//! @return Number of failed tests
+//! @return 0 if test data was fine
 //---------------------------------------------------------------
 
 int test_solve_equation ();

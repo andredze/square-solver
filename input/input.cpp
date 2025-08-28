@@ -1,5 +1,36 @@
 #include "input.h"
 
+int strcmp (char* str1, const char* str2)
+{
+    int i = 0;
+    while (str1[i] == str2[i] && str1[i] != '\n' && str2[i] != '\n')
+    {
+        i++;
+    }
+    if (i > 0)
+    {
+        if (str1[i - 1] == str2[i - 1])
+        {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+int check_for_file (int argc, char* argv[], FILE** stream)
+{
+    if (argc != 1)
+    {
+        *stream = fopen (argv[1], "r");
+        if (*stream == NULL)
+        {
+            printf ("Error: cannot open %s\n", argv[1]);
+            return 1;
+        }
+    }
+    return 0;
+}
+
 int get_console_input (Coeffs_t* coeffs)
 {
     printf ("Enter coefficients\na, b, c: ");
@@ -15,20 +46,6 @@ int get_file_input (Coeffs_t* coeffs, FILE* stream)
                      coeffs->b,
                      coeffs->c);
     return user_active;
-}
-
-int check_for_file (int argc, char* argv[], FILE** stream)
-{
-    if (argc != 1)
-    {
-        *stream = fopen (argv[1], "r");
-        if (*stream == NULL)
-        {
-            printf ("Error: cannot open %s\n", argv[1]);
-            return 1;
-        }
-    }
-    return 0;
 }
 
 int get_input (Coeffs_t* coeffs, FILE* stream)
