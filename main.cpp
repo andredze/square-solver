@@ -2,13 +2,14 @@
 #include "test/test.h"
 #include "programm/programm.h"
 
-#ifdef DEBUG_MODE
 int main (int argc, char* argv[])
 {
+#ifdef DEBUG_MODE
     printf ("Input debug mode: ");
     char debug_mode[MAXLEN] = "";
-    scanf ("%s", debug_mode);
-
+    char line[MAXLEN] = "";
+    fgets (line, MAXLEN, stdin);
+    sscanf (line, "%s", debug_mode);
     if (strcmp (debug_mode, "TEST"))
     {
         test_solve_equation ();
@@ -21,12 +22,8 @@ int main (int argc, char* argv[])
     {
         printf ("Error: unknown debugging command\n");
     }
+#else
+    run_programm (argc, argv);
+#endif
     return 0;
 }
-
-#else
-int main (int argc, char* argv[])
-{
-    return run_programm (argc, argv);
-}
-#endif
