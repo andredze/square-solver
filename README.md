@@ -8,10 +8,11 @@ Debug build:
 ```powershell
   make debug
 ```
---------------------------------
+
 #### Debug commands
 - RUN
 - TEST
+
 --------------------------------
 
 ## Build and usage

@@ -28,11 +28,10 @@ var NAVTREE =
     [ "KVADRATKA", "md__r_e_a_d_m_e.html", [
       [ "Debug", "md__r_e_a_d_m_e.html#autotoc_md2", [
         [ "Made on LETKA by KSA", "md__r_e_a_d_m_e.html#autotoc_md1", [
-          [ "Debug commands", "md__r_e_a_d_m_e.html#autotoc_md4", null ]
+          [ "Debug commands", "md__r_e_a_d_m_e.html#autotoc_md3", null ]
         ] ]
       ] ],
-      [ "- TEST", "md__r_e_a_d_m_e.html#autotoc_md5", null ],
-      [ "Build and usage", "md__r_e_a_d_m_e.html#autotoc_md6", null ]
+      [ "Build and usage", "md__r_e_a_d_m_e.html#autotoc_md5", null ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
