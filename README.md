@@ -13,8 +13,6 @@ Debug build:
 - RUN
 - TEST
 
---------------------------------
-
 ## Build and usage
 Build:
 ```powershell
