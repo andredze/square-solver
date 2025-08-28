@@ -8,7 +8,11 @@ int main (int argc, char* argv[])
     printf ("Input debug mode: ");
     char debug_mode[MAXLEN] = "";
     char line[MAXLEN] = "";
-    fgets (line, MAXLEN, stdin);
+    if (fgets (line, MAXLEN, stdin) == NULL)
+    {
+        printf ("Input the command\n");
+        return 1;
+    }
     sscanf (line, "%s", debug_mode);
     if (strcmp (debug_mode, "TEST"))
     {

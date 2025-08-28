@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['test_5fcreating_5ferror_0',['test_creating_error',['../test_8h.html#a42ba5638cc342c6c695b50191b199a59',1,'test.cpp']]],
-  ['test_5fequation_5fexample_1',['test_equation_example',['../test_8h.html#a8d8f2a3a219a0ab3de2cad5f06097e04',1,'test.cpp']]],
-  ['test_5fsolve_5fequation_2',['test_solve_equation',['../test_8h.html#a6ebc658fc4c3315e8af3603288d7d8fd',1,'test.cpp']]]
+  ['solve_5fequation_0',['solve_equation',['../solve_8h.html#a183d7a1c3ab9a8292793453dd127c01a',1,'solve.cpp']]],
+  ['solve_5flinear_5feq_1',['solve_linear_eq',['../solve_8h.html#acbe4f085a46e0569b81b03b495e31333',1,'solve.cpp']]],
+  ['solve_5fquadratic_5feq_2',['solve_quadratic_eq',['../solve_8h.html#a37184ec305ba2daaa3ad15d4f567d598',1,'solve.cpp']]]
 ];
