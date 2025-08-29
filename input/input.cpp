@@ -49,7 +49,9 @@ int get_input (Coeffs_t* coeffs, FILE* stream)
         {
             if (sscanf (line, "%lg %lg %lg", &(coeffs->a), &(coeffs->b), &(coeffs->c)) != 3)
             {
-                printf ("Viydi i vvedi normalno\n\n");
+                printf ("\nViydi i vvedi normalno\n");
+                printf ("Enter cooefficients\na, b, c: ");
+                csmlcd
             }
             else
             {

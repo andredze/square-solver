@@ -23,6 +23,9 @@ EXECUTABLE = run.exe
 all:
 	$(CXX) $(FLAGS) $(SOURCES) -o $(EXECUTABLE)
 
+release:
+	$(CXX) $(FLAGS) $(SOURCES) -o $(EXECUTABLE)
+
 debug:
 	$(CXX) -DDEBUG_MODE $(FLAGS) $(SOURCES) -o $(EXECUTABLE)
 

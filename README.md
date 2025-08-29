@@ -16,7 +16,7 @@ Debug build:
 ## Build and usage
 Build:
 ```powershell
-  make
+  make release
 ```
 Run with data from keyboard:
 ```powershell
