@@ -51,7 +51,6 @@ int get_input (Coeffs_t* coeffs, FILE* stream)
             {
                 printf ("\nViydi i vvedi normalno\n");
                 printf ("Enter cooefficients\na, b, c: ");
-                csmlcd
             }
             else
             {
