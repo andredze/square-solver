@@ -11,7 +11,7 @@
 //! @param [in]  str1  first string
 //! @param [in]  str2  second string
 //!
-//! @return 1 if they are equal
+//! @return 0 if they are equal
 //----------------------------------------------------------------
 
 int strcmpr (const char* str1, const char* str2);
@@ -59,7 +59,9 @@ int get_file_input (Coeffs_t* coeffs, FILE* stream);
 //! @param  stream  Pointer to a FILE, redirecting
 //!                 to the file stream
 //!
-//! @return 0 if user wants to exit. Else 1
+//! @return 0 if user wants to exit. 1 if user doesn't.
+//!         EOF if input is by file and it's wrongly
+//!         structured.
 //!
 //! @note   Prints an error in case of a wrong input and
 //!         allows to re-enter; EOF to exit the function

@@ -4,5 +4,5 @@ var input_8h =
     [ "get_console_input", "input_8h.html#a9758724c4ae6df3bd67c95a12d4b93f0", null ],
     [ "get_file_input", "input_8h.html#a7ea076d0d07aaf7e333b0fbc0b565209", null ],
     [ "get_input", "input_8h.html#a353ddfd524c037eac695f075ace95923", null ],
-    [ "strequal", "input_8h.html#a4b45de5f0e3e56fbfe64cfc5916c2670", null ]
+    [ "strcmpr", "input_8h.html#abbdfa6b01461a9ecb9cd424ba7a83e66", null ]
 ];
