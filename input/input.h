@@ -14,7 +14,7 @@
 //! @return 1 if they are equal
 //----------------------------------------------------------------
 
-int strequal (const char* str1, const char* str2);
+int strcmpr (const char* str1, const char* str2);
 
 //-------------------------------------------------------------------
 //! Checks terminal input for file. Sets stream to file

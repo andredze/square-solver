@@ -2,6 +2,9 @@
 
 int run_programm (int argc, char* argv[])
 {
+    assert(argc >= 0);
+    assert(argv != NULL);
+
     printf ("\n---------------MEOWDRATKA---------------\n\n");
 
     FILE* stream = stdin;
@@ -18,7 +21,7 @@ int run_programm (int argc, char* argv[])
                                       .x2 = 0}};
     int user_active = 1;
 
-    while (user_active)
+    while (user_active == 1)
     {
         if (stream == stdin)
         {
@@ -28,7 +31,7 @@ int run_programm (int argc, char* argv[])
         {
             user_active = get_file_input (&equation.coeffs, stream);
         }
-        if (user_active)
+        if (user_active == 1)
         {
             solve_equation (&equation);
             print_answer (&equation.roots);

@@ -2,6 +2,8 @@
 
 void print_answer (Roots_t* roots)
 {
+    assert(roots != NULL);
+
     switch (roots->RootsCount)
     {
     case ZERO_SOL:

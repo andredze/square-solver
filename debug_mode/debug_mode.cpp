@@ -2,6 +2,8 @@
 
 int get_debug_mode (char* debug_mode)
 {
+    assert(debug_mode != NULL);
+
     printf ("Input debug mode: ");
 
     if (fgets (debug_mode, MAXLEN, stdin) == NULL)

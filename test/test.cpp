@@ -38,6 +38,8 @@ int test_solve_equation ()
 
 int test_equation_example (Equation_t* exp)
 {
+    assert(exp != NULL);
+
     double a = exp->coeffs.a;
     double b = exp->coeffs.b;
     double c = exp->coeffs.c;
@@ -73,6 +75,10 @@ int test_creating_error ()
 
 int equal_equation_t (Equation_t* eq1, Equation_t* eq2)
 {
+    assert(eq1 != NULL);
+    assert(eq2 != NULL);
+    assert(eq1 != eq2);
+
     double x1 = eq1->roots.x1;
     double x2 = eq1->roots.x2;
     SolutionCount_t RootsCount = eq1->roots.RootsCount;

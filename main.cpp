@@ -7,13 +7,16 @@ int main (int argc, char* argv[])
 {
 #ifdef DEBUG_MODE
     char debug_mode[MAXLEN] = "";
-    get_debug_mode (debug_mode);
+    if (get_debug_mode (debug_mode))
+    {
+        return 1;
+    }
 
-    if (strequal (debug_mode, "TEST") == 0)
+    if (strcmpr (debug_mode, "TEST") == 0)
     {
         test_solve_equation ();
     }
-    else if (strequal (debug_mode, "RUN") == 0)
+    else if (strcmpr (debug_mode, "RUN") == 0)
     {
 #endif
         run_programm (argc, argv);

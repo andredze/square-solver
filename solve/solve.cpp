@@ -2,9 +2,15 @@
 
 void solve_equation (Equation_t* eq)
 {
+    assert(eq != NULL);
+
     double a = eq->coeffs.a;
     double b = eq->coeffs.b;
     double c = eq->coeffs.c;
+
+    assert(isfinite(a));
+    assert(isfinite(b));
+    assert(isfinite(c));
 
     if (is_zero (a))
     {
@@ -35,17 +41,25 @@ int is_zero (double value)
 
 void solve_linear_eq (Equation_t* eq)
 {
+    assert(eq != NULL);
 
     double b = eq->coeffs.b;
     double c = eq->coeffs.c;
+
+    assert(b != 0);
+
     (&eq->roots)->x1 = - c / b;
 }
 
 void solve_quadratic_eq (Equation_t* eq)
 {
+    assert(eq != NULL);
+
     double a = eq->coeffs.a;
     double b = eq->coeffs.b;
     double c = eq->coeffs.c;
+
+    assert(a != 0);
 
     double discr = b * b - 4 * a * c;
 
